@@ -2,6 +2,31 @@ import numpy as np
 from ase.io import read
 
 def load_CSD_data(PATH, random_subsample=None):
+    """Helper function that loads the CSD-2K and CSD-500 dataset
+       The CSD-X dataset are .txt files of joined extended-xyz files. Where unit cell parameters are given in the comment line
+       And atom wise calculated GIPAW shifts, are stored in additional atom-wise collums. ast additional colum is GIPAW.
+       In CSD-500 another column is given with the 
+    
+    Parameters
+    ----------
+    PATH             : string
+                       absolut path of the dataset .txt file
+    
+    random_subsample : int < dataset_size
+                       returns a random subsample of the dataset with N(random_subsample) entries
+                       
+    
+    Returns
+    -------
+    structures : list of ase.atoms ojects
+                 wrapped structures of the dataset
+    
+    shifts     : numpy array of size (N_environments,) or (N_environments,2)
+                 shifts of the individual nuclei
+    """
+    
+    
+    
     structures = read(PATH,format="extxyz",index=":")
     
 
@@ -24,6 +49,34 @@ def load_CSD_data(PATH, random_subsample=None):
 
 
 def make_element_wise_environments(calculator,frames,y=None,select=False):
+    """Returns shifts and environments of only one atomtype from the atoms in frames. 
+       Or returns a dictionary of atomic-type-wise 
+    
+    Parameters
+    ----------
+    calculator : rascal.representations calculator object
+                 calculator object with hyperparameters 
+    
+    frames     : list of ase.atoms objects
+                 wrapped structures of the dataset
+    
+    y          : numpy array of shape (N_environments,X)
+                 array of atomic properties
+                 
+    select     : int
+                 atomic number to select atomic species
+    Returns
+    -------
+    
+    X_element_wise: dict or numpy.array
+                    either dict with atomic numbers keys containing the representations in numpy array, 
+                    or numpy array with representations of the selected atomic species
+    y_element_wise: dict or numpy.array
+                    either dict with atomic numbers keys containing the shifts in numpy arrays, 
+                    or numpy array with representations of the selected atomic species
+    
+    """
+    
     
     #get unique elements 
     y_element_wise = {}
