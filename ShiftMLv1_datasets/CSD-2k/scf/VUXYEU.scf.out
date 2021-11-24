@@ -1,0 +1,917 @@
+
+     Program PWSCF v.6.1 (svn rev. 13369) starts on  8Dec2017 at  1:47: 0 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI), running on     8 processors
+     R & G space division:  proc/nbgrp/npool/nimage =       8
+     Waiting for input...
+     Reading input from standard input
+
+     Current dimensions of program PWSCF are:
+     Max number of different atomic species (ntypx) = 10
+     Max number of k-points (npk) =  40000
+     Max angular momentum in pseudopotentials (lmaxx) =  3
+               file C.pbe-n-kjpaw_psl.0.1.UPF: wavefunction(s)  2P renormalized
+               file N.pbe-n-kjpaw_psl.0.1.UPF: wavefunction(s)  2P renormalized
+               file H.pbe-kjpaw_psl.0.1.UPF: wavefunction(s)  1S renormalized
+               file O.pbe-n-kjpaw_psl.0.1.UPF: wavefunction(s)  2P renormalized
+
+     -------------------------------------
+     Parameters for Dispersion Correction:
+     -------------------------------------
+       atom      VdW radius       C_6     
+
+        C          2.744         60.710
+        N          2.640         42.670
+        H          1.892          4.857
+        O          2.536         24.284
+
+     Subspace diagonalization in iterative solution of the eigenvalue problem:
+     a serial algorithm will be used
+
+ 
+     Parallelization info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Min        2240    2240    591               151382   151382   20536
+     Max        2242    2242    593               151383   151383   20537
+     Sum       17925   17925   4739              1211057  1211057  164295
+ 
+
+
+     bravais-lattice index     =            0
+     lattice parameter (alat)  =      15.9417  a.u.
+     unit-cell volume          =    8962.5077 (a.u.)^3
+     number of atoms/cell      =          164
+     number of atomic types    =            4
+     number of electrons       =       400.00
+     number of Kohn-Sham states=          240
+     kinetic-energy cutoff     =     100.0000  Ry
+     charge density cutoff     =     400.0000  Ry
+     convergence threshold     =      1.0E-08
+     mixing beta               =       0.5000
+     number of iterations used =            8  plain     mixing
+     Exchange-correlation      =  SLA  PW   PBX  PBC ( 1  4  3  4 0 0)
+
+     celldm(1)=  15.941730  celldm(2)=   0.000000  celldm(3)=   0.000000
+     celldm(4)=   0.000000  celldm(5)=   0.000000  celldm(6)=   0.000000
+
+     crystal axes: (cart. coord. in units of alat)
+               a(1) = (   1.000000   0.000000   0.000000 )  
+               a(2) = (   0.000000   2.214557   0.000000 )  
+               a(3) = (   0.000000   0.000000   0.998933 )  
+
+     reciprocal axes: (cart. coord. in units 2 pi/alat)
+               b(1) = (  1.000000  0.000000  0.000000 )  
+               b(2) = (  0.000000  0.451558  0.000000 )  
+               b(3) = (  0.000000  0.000000  1.001068 )  
+
+
+     PseudoPot. # 1 for  C read from file:
+     /scratch/ahofstet/pseudo/C.pbe-n-kjpaw_psl.0.1.UPF
+     MD5 check sum: 430fe95172b1e11ef3f8ed03bac87931
+     Pseudo is Projector augmented-wave + core cor, Zval =  4.0
+     Generated using "atomic" code by A. Dal Corso  v.5.0.99 svn rev. 10869
+     Shape of augmentation charge: BESSEL
+     Using radial grid of 1073 points,  4 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+     Q(r) pseudized with 0 coefficients 
+
+
+     PseudoPot. # 2 for  N read from file:
+     /scratch/ahofstet/pseudo/N.pbe-n-kjpaw_psl.0.1.UPF
+     MD5 check sum: f73187c8b701007e77325f868c9291d7
+     Pseudo is Projector augmented-wave + core cor, Zval =  5.0
+     Generated using "atomic" code by A. Dal Corso  v.5.0.99 svn rev. 10869
+     Shape of augmentation charge: PSQ
+     Using radial grid of 1085 points,  4 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+     Q(r) pseudized with 0 coefficients 
+
+
+     PseudoPot. # 3 for  H read from file:
+     /scratch/ahofstet/pseudo/H.pbe-kjpaw_psl.0.1.UPF
+     MD5 check sum: 94e484f906d9e9773b2f6e52662335b2
+     Pseudo is Projector augmented-wave, Zval =  1.0
+     Generated using "atomic" code by A. Dal Corso  v.5.0.99 svn rev. 10869
+     Shape of augmentation charge: PSQ
+     Using radial grid of  929 points,  2 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+     Q(r) pseudized with 0 coefficients 
+
+
+     PseudoPot. # 4 for  O read from file:
+     /scratch/ahofstet/pseudo/O.pbe-n-kjpaw_psl.0.1.UPF
+     MD5 check sum: 3f94a2996a3169367d6eb21d9b593f20
+     Pseudo is Projector augmented-wave + core cor, Zval =  6.0
+     Generated using "atomic" code by A. Dal Corso  v.5.0.99 svn rev. 10869
+     Shape of augmentation charge: BESSEL
+     Using radial grid of 1095 points,  4 beta functions with: 
+                l(1) =   0
+                l(2) =   0
+                l(3) =   1
+                l(4) =   1
+     Q(r) pseudized with 0 coefficients 
+
+
+     atomic species   valence    mass     pseudopotential
+        C              4.00    12.01070      C( 1.00)
+        N              5.00    14.00670      N( 1.00)
+        H              1.00     1.00794      H( 1.00)
+        O              6.00    15.99940      O( 1.00)
+
+      2 Sym. Ops. (no inversion) found ( 1 have fractional translation)
+          (note:  2 additional sym.ops. were found but ignored
+           their fractional translations are incommensurate with FFT grid)
+
+
+   Cartesian axes
+
+     site n.     atom                  positions (alat units)
+         1           N   tau(   1) = (   0.6798479   1.1596340   0.3430566  )
+         2           N   tau(   2) = (   0.3201521   1.0549226   0.8425231  )
+         3           N   tau(   3) = (   0.8201521   0.0523557   0.8425231  )
+         4           N   tau(   4) = (   0.1798479   2.1622009   0.3430566  )
+         5           H   tau(   5) = (   0.5578774   1.1844799   0.3490905  )
+         6           H   tau(   6) = (   0.4421226   1.0300768   0.8485571  )
+         7           H   tau(   7) = (   0.9421226   0.0772015   0.8485571  )
+         8           H   tau(   8) = (   0.0578774   2.1373551   0.3490905  )
+         9           H   tau(   9) = (   0.7013493   1.1414374   0.2214344  )
+        10           H   tau(  10) = (   0.2986507   1.0731193   0.7209010  )
+        11           H   tau(  11) = (   0.7986507   0.0341590   0.7209010  )
+        12           H   tau(  12) = (   0.2013493   2.1803976   0.2214344  )
+        13           C   tau(  13) = (   0.7685246   1.3049089   0.3967795  )
+        14           C   tau(  14) = (   0.2314754   0.9096478   0.8962460  )
+        15           C   tau(  15) = (   0.7314754   0.1976305   0.8962460  )
+        16           C   tau(  16) = (   0.2685246   2.0169261   0.3967795  )
+        17           H   tau(  17) = (   0.8949686   1.2810811   0.3774235  )
+        18           H   tau(  18) = (   0.1050314   0.9334756   0.8768901  )
+        19           H   tau(  19) = (   0.6050314   0.1738027   0.8768901  )
+        20           H   tau(  20) = (   0.3949686   2.0407539   0.3774235  )
+        21           C   tau(  21) = (   0.7394478   1.3373102   0.5724617  )
+        22           C   tau(  22) = (   0.2605522   0.8772465   0.0729951  )
+        23           C   tau(  23) = (   0.7605522   0.2300319   0.0729951  )
+        24           C   tau(  24) = (   0.2394478   1.9845248   0.5724617  )
+        25           H   tau(  25) = (   0.7801130   1.2367202   0.6446904  )
+        26           H   tau(  26) = (   0.2198870   0.9778365   0.1452238  )
+        27           H   tau(  27) = (   0.7198870   0.1294419   0.1452238  )
+        28           H   tau(  28) = (   0.2801130   2.0851148   0.6446904  )
+        29           H   tau(  29) = (   0.6107160   1.3496568   0.5919789  )
+        30           H   tau(  30) = (   0.3892840   0.8648999   0.0925124  )
+        31           H   tau(  31) = (   0.8892840   0.2423784   0.0925124  )
+        32           H   tau(  32) = (   0.1107160   1.9721782   0.5919789  )
+        33           C   tau(  33) = (   0.8248357   1.4890534   0.6246396  )
+        34           C   tau(  34) = (   0.1751643   0.7255032   0.1251730  )
+        35           C   tau(  35) = (   0.6751643   0.3817751   0.1251730  )
+        36           C   tau(  36) = (   0.3248357   1.8327816   0.6246396  )
+        37           H   tau(  37) = (   0.7983337   1.5123704   0.7503592  )
+        38           H   tau(  38) = (   0.2016663   0.7021862   0.2508926  )
+        39           H   tau(  39) = (   0.7016663   0.4050921   0.2508926  )
+        40           H   tau(  40) = (   0.2983337   1.8094646   0.7503592  )
+        41           H   tau(  41) = (   0.9536413   1.4693691   0.6151776  )
+        42           H   tau(  42) = (   0.0463587   0.7451875   0.1157111  )
+        43           H   tau(  43) = (   0.5463587   0.3620908   0.1157111  )
+        44           H   tau(  44) = (   0.4536413   1.8524659   0.6151776  )
+        45           C   tau(  45) = (   0.7781289   1.6310792   0.5218005  )
+        46           C   tau(  46) = (   0.2218711   0.5834774   0.0223340  )
+        47           C   tau(  47) = (   0.7218711   0.5238009   0.0223340  )
+        48           C   tau(  48) = (   0.2781289   1.6907558   0.5218005  )
+        49           H   tau(  49) = (   0.8450177   1.7372321   0.5573271  )
+        50           H   tau(  50) = (   0.1549823   0.4773246   0.0578606  )
+        51           H   tau(  51) = (   0.6549823   0.6299537   0.0578606  )
+        52           H   tau(  52) = (   0.3450177   1.5846029   0.5573271  )
+        53           H   tau(  53) = (   0.6517277   1.6590668   0.5401131  )
+        54           H   tau(  54) = (   0.3482723   0.5554898   0.0406466  )
+        55           H   tau(  55) = (   0.8482723   0.5517885   0.0406466  )
+        56           H   tau(  56) = (   0.1517277   1.6627682   0.5401131  )
+        57           C   tau(  57) = (   0.8058257   1.5962202   0.3456740  )
+        58           C   tau(  58) = (   0.1941743   0.6183365   0.8451406  )
+        59           C   tau(  59) = (   0.6941743   0.4889419   0.8451406  )
+        60           C   tau(  60) = (   0.3058257   1.7256148   0.3456740  )
+        61           H   tau(  61) = (   0.7670289   1.6976839   0.2736949  )
+        62           H   tau(  62) = (   0.2329711   0.5168728   0.7731615  )
+        63           H   tau(  63) = (   0.7329711   0.5904056   0.7731615  )
+        64           H   tau(  64) = (   0.2670289   1.6241511   0.2736949  )
+        65           H   tau(  65) = (   0.9338488   1.5802802   0.3243712  )
+        66           H   tau(  66) = (   0.0661512   0.6342765   0.8238377  )
+        67           H   tau(  67) = (   0.5661512   0.4730018   0.8238377  )
+        68           H   tau(  68) = (   0.4338488   1.7415548   0.3243712  )
+        69           C   tau(  69) = (   0.7177156   1.4458335   0.2943276  )
+        70           C   tau(  70) = (   0.2822844   0.7687231   0.7937942  )
+        71           C   tau(  71) = (   0.7822844   0.3385552   0.7937942  )
+        72           C   tau(  72) = (   0.2177156   1.8760015   0.2943276  )
+        73           H   tau(  73) = (   0.5890344   1.4636162   0.3079726  )
+        74           H   tau(  74) = (   0.4109656   0.7509404   0.8074391  )
+        75           H   tau(  75) = (   0.9109656   0.3563379   0.8074391  )
+        76           H   tau(  76) = (   0.0890344   1.8582188   0.3079726  )
+        77           H   tau(  77) = (   0.7405176   1.4192824   0.1685551  )
+        78           H   tau(  78) = (   0.2594824   0.7952743   0.6680217  )
+        79           H   tau(  79) = (   0.7594824   0.3120041   0.6680217  )
+        80           H   tau(  80) = (   0.2405176   1.9025526   0.1685551  )
+        81           C   tau(  81) = (   0.7122146   1.0068389   0.4297218  )
+        82           C   tau(  82) = (   0.2877854   1.2077177   0.9291884  )
+        83           C   tau(  83) = (   0.7877854   2.1141173   0.9291884  )
+        84           C   tau(  84) = (   0.2122146   0.1004394   0.4297218  )
+        85           H   tau(  85) = (   0.6710724   1.0241540   0.5519634  )
+        86           H   tau(  86) = (   0.3289276   1.1904026   0.0524968  )
+        87           H   tau(  87) = (   0.8289276   2.1314324   0.0524968  )
+        88           H   tau(  88) = (   0.1710724   0.0831243   0.5519634  )
+        89           C   tau(  89) = (   0.6135826   0.8754729   0.3530383  )
+        90           C   tau(  90) = (   0.3864174   1.3390838   0.8525049  )
+        91           C   tau(  91) = (   0.8864174   1.9827512   0.8525049  )
+        92           C   tau(  92) = (   0.1135826   0.2318055   0.3530383  )
+        93           H   tau(  93) = (   0.6507605   0.8625431   0.2284503  )
+        94           H   tau(  94) = (   0.3492395   1.3520136   0.7279168  )
+        95           H   tau(  95) = (   0.8492395   1.9698214   0.7279168  )
+        96           H   tau(  96) = (   0.1507605   0.2447352   0.2284503  )
+        97           H   tau(  97) = (   0.4877031   0.9087428   0.3553168  )
+        98           H   tau(  98) = (   0.5122969   1.3058139   0.8547833  )
+        99           H   tau(  99) = (   1.0122969   2.0160211   0.8547833  )
+       100           H   tau( 100) = (  -0.0122969   0.1985355   0.3553168  )
+       101           C   tau( 101) = (   0.6402402   0.7182079   0.4395959  )
+       102           C   tau( 102) = (   0.3597598   1.4963487   0.9390625  )
+       103           C   tau( 103) = (   0.8597598   1.8254863   0.9390625  )
+       104           C   tau( 104) = (   0.1402402   0.3890704   0.4395959  )
+       105           H   tau( 105) = (   0.5968901   0.7289604   0.5623888  )
+       106           H   tau( 106) = (   0.4031099   1.4855963   0.0629223  )
+       107           H   tau( 107) = (   0.9031099   1.8362387   0.0629223  )
+       108           H   tau( 108) = (   0.0968901   0.3783179   0.5623888  )
+       109           H   tau( 109) = (   0.5705632   0.6244211   0.3819391  )
+       110           H   tau( 110) = (   0.4294368   1.5901356   0.8814057  )
+       111           H   tau( 111) = (   0.9294368   1.7316994   0.8814057  )
+       112           H   tau( 112) = (   0.0705632   0.4828573   0.3819391  )
+       113           C   tau( 113) = (   0.8160603   0.6738681   0.4417866  )
+       114           C   tau( 114) = (   0.1839397   1.5406885   0.9412531  )
+       115           C   tau( 115) = (   0.6839397   1.7811465   0.9412531  )
+       116           C   tau( 116) = (   0.3160603   0.4334102   0.4417866  )
+       117           H   tau( 117) = (   0.8339176   0.5630553   0.5083932  )
+       118           H   tau( 118) = (   0.1660824   1.6515014   0.0089266  )
+       119           H   tau( 119) = (   0.6660824   1.6703336   0.0089266  )
+       120           H   tau( 120) = (   0.3339176   0.5442231   0.5083932  )
+       121           H   tau( 121) = (   0.8557490   0.6517111   0.3191905  )
+       122           H   tau( 122) = (   0.1442510   1.5628456   0.8186571  )
+       123           H   tau( 123) = (   0.6442510   1.7589894   0.8186571  )
+       124           H   tau( 124) = (   0.3557490   0.4555672   0.3191905  )
+       125           C   tau( 125) = (   0.9162385   0.8070126   0.5138206  )
+       126           C   tau( 126) = (   0.0837615   1.4075440   0.0143541  )
+       127           C   tau( 127) = (   0.5837615   1.9142910   0.0143541  )
+       128           C   tau( 128) = (   0.4162385   0.3002657   0.5138206  )
+       129           H   tau( 129) = (   0.0430759   0.7766891   0.5080121  )
+       130           H   tau( 130) = (   0.9569241   1.4378675   0.0085456  )
+       131           H   tau( 131) = (   0.4569241   1.8839675   0.0085456  )
+       132           H   tau( 132) = (   0.5430759   0.3305892   0.5080121  )
+       133           H   tau( 133) = (   0.8850701   0.8208414   0.6401026  )
+       134           H   tau( 134) = (   0.1149299   1.3937153   0.1406360  )
+       135           H   tau( 135) = (   0.6149299   1.9281197   0.1406360  )
+       136           H   tau( 136) = (   0.3850701   0.2864370   0.6401026  )
+       137           C   tau( 137) = (   0.8885655   0.9655876   0.4286653  )
+       138           C   tau( 138) = (   0.1114345   1.2489691   0.9281318  )
+       139           C   tau( 139) = (   0.6114345   2.0728659   0.9281318  )
+       140           C   tau( 140) = (   0.3885655   0.1416907   0.4286653  )
+       141           H   tau( 141) = (   0.9588850   1.0591602   0.4859234  )
+       142           H   tau( 142) = (   0.0411150   1.1553965   0.9853899  )
+       143           H   tau( 143) = (   0.5411150   2.1664385   0.9853899  )
+       144           H   tau( 144) = (   0.4588850   0.0481182   0.4859234  )
+       145           H   tau( 145) = (   0.9282586   0.9564752   0.3042478  )
+       146           H   tau( 146) = (   0.0717414   1.2580814   0.8037143  )
+       147           H   tau( 147) = (   0.5717414   2.0637536   0.8037143  )
+       148           H   tau( 148) = (   0.4282586   0.1508031   0.3042478  )
+       149           N   tau( 149) = (   0.2805892   1.2192395   0.4456179  )
+       150           N   tau( 150) = (   0.7194108   0.9953172   0.9450844  )
+       151           N   tau( 151) = (   0.2194108   0.1119612   0.9450844  )
+       152           N   tau( 152) = (   0.7805892   2.1025955   0.4456179  )
+       153           O   tau( 153) = (   0.1529409   1.2822655   0.4865352  )
+       154           O   tau( 154) = (   0.8470591   0.9322911   0.9860017  )
+       155           O   tau( 155) = (   0.3470591   0.1749872   0.9860017  )
+       156           O   tau( 156) = (   0.6529409   2.0395695   0.4865352  )
+       157           O   tau( 157) = (   0.3360463   1.1000066   0.5206269  )
+       158           O   tau( 158) = (   0.6639537   1.1145501   0.0211603  )
+       159           O   tau( 159) = (   0.1639537   2.2072849   0.0211603  )
+       160           O   tau( 160) = (   0.8360463   0.0072718   0.5206269  )
+       161           O   tau( 161) = (   0.3595851   1.2723979   0.3288227  )
+       162           O   tau( 162) = (   0.6404149   0.9421588   0.8282893  )
+       163           O   tau( 163) = (   0.1404149   0.1651196   0.8282893  )
+       164           O   tau( 164) = (   0.8595851   2.0494371   0.3288227  )
+
+     number of k points=     4
+                       cart. coord. in units 2pi/alat
+        k(    1) = (   0.0000000   0.0000000   0.0000000), wk =   0.5000000
+        k(    2) = (   0.0000000   0.0000000  -0.5005340), wk =   0.5000000
+        k(    3) = (  -0.5000000   0.0000000   0.0000000), wk =   0.5000000
+        k(    4) = (  -0.5000000   0.0000000  -0.5005340), wk =   0.5000000
+
+     Dense  grid:  1211057 G-vectors     FFT dimensions: ( 108, 225, 108)
+
+     Estimated max dynamical RAM per process >    1234.84MB
+
+     Estimated total allocated dynamical RAM >    9878.72MB
+
+     Check: negative/imaginary core charge=   -0.000002    0.000000
+
+     Initial potential from superposition of free atoms
+
+     starting charge  399.99701, renormalised to  400.00000
+     Starting wfc are  368 randomized atomic wfcs
+     Checking if some PAW data can be deallocated... 
+
+     total cpu time spent up to now is       45.1 secs
+
+     per-process dynamical memory:   720.3 Mb
+
+     Self-consistent Calculation
+
+     iteration #  1     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  1.00E-02,  avg # of iterations =  4.0
+
+     total cpu time spent up to now is      170.7 secs
+
+     total energy              =   -1721.41951445 Ry
+     Harris-Foulkes estimate   =   -1730.52865960 Ry
+     estimated scf accuracy    <      17.30546866 Ry
+
+     iteration #  2     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  4.33E-03,  avg # of iterations =  3.0
+
+     total cpu time spent up to now is      240.9 secs
+
+     total energy              =   -1722.78051100 Ry
+     Harris-Foulkes estimate   =   -1723.91124198 Ry
+     estimated scf accuracy    <       2.36875537 Ry
+
+     iteration #  3     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  5.92E-04,  avg # of iterations =  5.0
+
+     total cpu time spent up to now is      382.6 secs
+
+     total energy              =   -1724.59452740 Ry
+     Harris-Foulkes estimate   =   -1725.55581943 Ry
+     estimated scf accuracy    <       2.64758264 Ry
+
+     iteration #  4     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  5.92E-04,  avg # of iterations =  1.0
+
+     total cpu time spent up to now is      443.9 secs
+
+     total energy              =   -1724.08217725 Ry
+     Harris-Foulkes estimate   =   -1724.72243262 Ry
+     estimated scf accuracy    <       0.87610553 Ry
+
+     iteration #  5     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  2.19E-04,  avg # of iterations =  5.0
+
+     total cpu time spent up to now is      583.2 secs
+
+     total energy              =   -1724.63762732 Ry
+     Harris-Foulkes estimate   =   -1725.91883564 Ry
+     estimated scf accuracy    <       3.68600577 Ry
+
+     iteration #  6     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  2.19E-04,  avg # of iterations =  4.2
+
+     total cpu time spent up to now is      652.6 secs
+
+     total energy              =   -1724.23686935 Ry
+     Harris-Foulkes estimate   =   -1724.77718069 Ry
+     estimated scf accuracy    <       1.25576378 Ry
+
+     iteration #  7     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  2.19E-04,  avg # of iterations =  5.5
+
+     total cpu time spent up to now is      767.2 secs
+
+     total energy              =   -1724.76096884 Ry
+     Harris-Foulkes estimate   =   -1724.77452727 Ry
+     estimated scf accuracy    <       0.04374850 Ry
+
+     iteration #  8     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  1.09E-05,  avg # of iterations = 10.5
+
+     total cpu time spent up to now is      850.1 secs
+
+     total energy              =   -1724.75507811 Ry
+     Harris-Foulkes estimate   =   -1724.76343304 Ry
+     estimated scf accuracy    <       0.01738876 Ry
+
+     iteration #  9     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  4.35E-06,  avg # of iterations =  7.8
+
+     total cpu time spent up to now is      965.1 secs
+
+     total energy              =   -1724.76362124 Ry
+     Harris-Foulkes estimate   =   -1724.76420479 Ry
+     estimated scf accuracy    <       0.00216606 Ry
+
+     iteration # 10     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  5.42E-07,  avg # of iterations =  2.0
+
+     total cpu time spent up to now is     1028.6 secs
+
+     total energy              =   -1724.76310394 Ry
+     Harris-Foulkes estimate   =   -1724.76370816 Ry
+     estimated scf accuracy    <       0.00105361 Ry
+
+     iteration # 11     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  2.63E-07,  avg # of iterations =  3.8
+
+     total cpu time spent up to now is     1126.8 secs
+
+     total energy              =   -1724.76354734 Ry
+     Harris-Foulkes estimate   =   -1724.76366274 Ry
+     estimated scf accuracy    <       0.00023367 Ry
+
+     iteration # 12     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  5.84E-08,  avg # of iterations =  1.8
+
+     total cpu time spent up to now is     1187.1 secs
+
+     total energy              =   -1724.76355268 Ry
+     Harris-Foulkes estimate   =   -1724.76356888 Ry
+     estimated scf accuracy    <       0.00004021 Ry
+
+     iteration # 13     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  1.01E-08,  avg # of iterations =  4.0
+
+     total cpu time spent up to now is     1305.8 secs
+
+     total energy              =   -1724.76360114 Ry
+     Harris-Foulkes estimate   =   -1724.76360878 Ry
+     estimated scf accuracy    <       0.00003180 Ry
+
+     iteration # 14     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  7.95E-09,  avg # of iterations =  1.0
+
+     total cpu time spent up to now is     1364.5 secs
+
+     total energy              =   -1724.76359504 Ry
+     Harris-Foulkes estimate   =   -1724.76360188 Ry
+     estimated scf accuracy    <       0.00001795 Ry
+
+     iteration # 15     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  4.49E-09,  avg # of iterations =  3.0
+
+     total cpu time spent up to now is     1447.6 secs
+
+     total energy              =   -1724.76359903 Ry
+     Harris-Foulkes estimate   =   -1724.76359920 Ry
+     estimated scf accuracy    <       0.00000057 Ry
+
+     iteration # 16     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  1.42E-10,  avg # of iterations =  4.0
+
+     total cpu time spent up to now is     1542.5 secs
+
+     total energy              =   -1724.76359914 Ry
+     Harris-Foulkes estimate   =   -1724.76359926 Ry
+     estimated scf accuracy    <       0.00000029 Ry
+
+     iteration # 17     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  7.32E-11,  avg # of iterations =  2.0
+
+     total cpu time spent up to now is     1604.4 secs
+
+     total energy              =   -1724.76359912 Ry
+     Harris-Foulkes estimate   =   -1724.76359916 Ry
+     estimated scf accuracy    <       0.00000006 Ry
+
+     iteration # 18     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  1.54E-11,  avg # of iterations =  4.0
+
+     total cpu time spent up to now is     1722.4 secs
+
+     total energy              =   -1724.76359916 Ry
+     Harris-Foulkes estimate   =   -1724.76359918 Ry
+     estimated scf accuracy    <       0.00000005 Ry
+
+     iteration # 19     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  1.31E-11,  avg # of iterations =  1.2
+
+     total cpu time spent up to now is     1781.8 secs
+
+     total energy              =   -1724.76359916 Ry
+     Harris-Foulkes estimate   =   -1724.76359917 Ry
+     estimated scf accuracy    <       0.00000001 Ry
+
+     iteration # 20     ecut=   100.00 Ry     beta=0.50
+     Davidson diagonalization with overlap
+     ethr =  3.57E-12,  avg # of iterations =  4.0
+
+     total cpu time spent up to now is     1890.3 secs
+
+     End of self-consistent calculation
+
+          k = 0.0000 0.0000 0.0000 (151409 PWs)   bands (ev):
+
+   -24.9620 -24.9620 -24.9605 -24.9605 -19.6125 -19.6125 -19.6023 -19.6023
+   -19.3419 -19.3418 -19.3183 -19.3183 -18.3706 -18.3703 -18.3548 -18.3547
+   -14.9396 -14.8767 -14.8681 -14.8600 -14.4971 -14.4044 -14.3956 -14.3903
+   -12.7244 -12.6676 -12.6658 -12.6310 -12.5124 -12.4946 -12.4924 -12.4659
+   -12.3640 -12.3576 -12.3436 -12.3157 -11.8768 -11.8445 -11.8433 -11.8130
+    -9.6167  -9.5532  -9.5464  -9.5295  -9.4914  -9.4783  -9.4482  -9.4296
+    -9.1126  -9.1110  -8.9353  -8.9350  -8.9270  -8.9093  -8.8632  -8.8234
+    -8.6836  -8.5931  -8.5805  -8.4980  -8.2873  -8.1407  -8.1398  -8.1363
+    -7.8375  -7.7505  -7.7134  -7.6303  -7.3137  -7.1859  -7.1041  -7.0870
+    -7.0734  -7.0722  -6.9082  -6.8727  -6.7329  -6.7017  -6.5931  -6.5370
+    -6.4912  -6.4387  -6.4368  -6.4290  -6.4075  -6.3632  -6.3561  -6.3042
+    -6.1701  -6.1306  -6.1235  -6.0671  -5.4824  -5.4076  -5.3677  -5.3630
+    -5.1274  -5.0858  -5.0461  -5.0322  -4.9073  -4.8667  -4.8170  -4.8170
+    -4.7289  -4.7250  -4.7212  -4.6785  -4.6422  -4.6243  -4.5607  -4.5406
+    -4.5052  -4.4864  -4.4796  -4.4332  -4.1178  -3.9952  -3.9442  -3.8020
+    -3.6562  -3.5376  -3.5278  -3.3939  -3.3898  -3.3475  -3.3274  -3.3252
+    -3.2597  -3.2215  -3.2032  -3.1783  -3.1109  -3.0855  -3.0806  -3.0479
+    -3.0096  -2.9531  -2.9228  -2.9211  -2.6611  -2.5989  -2.5621  -2.5349
+    -2.4838  -2.4753  -2.4449  -2.3992  -2.3007  -2.2730  -2.2547  -2.2213
+    -2.2199  -2.1544  -2.1479  -2.1441  -1.9460  -1.9419  -1.8922  -1.8538
+    -1.7725  -1.7521  -1.7273  -1.7132  -1.6563  -1.6261  -1.6209  -1.5672
+    -1.5097  -1.5073  -1.5023  -1.4804  -1.4641  -1.4300  -1.4226  -1.3356
+    -1.3321  -1.3197  -1.2726  -1.2596  -1.2226  -1.2175  -1.2167  -1.1719
+    -1.1587  -1.1545  -1.1493  -1.1407  -0.9696  -0.9599  -0.9362  -0.9343
+    -0.9073  -0.8830  -0.8268  -0.8194   0.3590   0.3595   0.3756   0.3761
+     3.9206   3.9277   3.9821   3.9860   5.5416   5.7976   5.9287   6.3096
+     6.4489   6.5106   6.5709   6.6145   6.7097   6.7835   6.9365   6.9385
+     7.1082   7.1352   7.2380   7.3152   7.3523   7.4986   7.5016   7.5851
+     7.6281   7.7233   7.7410   7.7716   7.9796   7.9921   8.0354   8.0866
+     8.1316   8.1374   8.1538   8.1951   8.2834   8.3042   8.3663   8.4611
+
+          k = 0.0000 0.0000-0.5005 (151402 PWs)   bands (ev):
+
+   -24.9612 -24.9612 -24.9612 -24.9612 -19.6074 -19.6074 -19.6074 -19.6074
+   -19.3315 -19.3315 -19.3315 -19.3315 -18.3607 -18.3607 -18.3605 -18.3605
+   -14.8999 -14.8999 -14.8717 -14.8717 -14.4457 -14.4457 -14.4003 -14.4003
+   -12.7001 -12.7001 -12.6513 -12.6513 -12.4996 -12.4996 -12.4861 -12.4861
+   -12.3490 -12.3490 -12.3374 -12.3374 -11.8595 -11.8595 -11.8289 -11.8289
+    -9.5826  -9.5826  -9.5743  -9.5743  -9.5095  -9.5095  -9.4294  -9.4294
+    -9.0171  -9.0171  -9.0166  -9.0166  -8.8903  -8.8903  -8.8841  -8.8841
+    -8.6361  -8.6361  -8.5241  -8.5241  -8.1502  -8.1502  -8.0714  -8.0714
+    -7.7410  -7.7410  -7.6369  -7.6369  -7.2130  -7.2130  -7.1707  -7.1707
+    -7.0847  -7.0847  -7.0687  -7.0687  -6.6246  -6.6246  -6.6170  -6.6170
+    -6.4727  -6.4727  -6.4265  -6.4265  -6.3406  -6.3406  -6.3165  -6.3165
+    -6.1807  -6.1807  -6.1402  -6.1402  -5.4389  -5.4389  -5.3980  -5.3980
+    -5.0616  -5.0616  -5.0419  -5.0419  -4.8600  -4.8600  -4.8271  -4.8271
+    -4.7907  -4.7907  -4.7231  -4.7231  -4.6815  -4.6815  -4.5603  -4.5603
+    -4.4958  -4.4958  -4.4546  -4.4546  -4.0024  -4.0024  -3.8962  -3.8962
+    -3.5637  -3.5637  -3.4424  -3.4424  -3.3250  -3.3250  -3.3055  -3.3055
+    -3.2496  -3.2496  -3.2160  -3.2160  -3.0920  -3.0920  -3.0791  -3.0791
+    -2.9768  -2.9768  -2.9214  -2.9214  -2.5676  -2.5676  -2.5608  -2.5608
+    -2.4717  -2.4717  -2.4216  -2.4216  -2.3414  -2.3414  -2.3246  -2.3246
+    -2.2258  -2.2258  -2.1644  -2.1644  -1.8767  -1.8767  -1.7938  -1.7938
+    -1.7546  -1.7546  -1.6871  -1.6871  -1.6588  -1.6588  -1.6266  -1.6266
+    -1.5700  -1.5700  -1.4902  -1.4902  -1.4162  -1.4162  -1.3971  -1.3971
+    -1.2596  -1.2596  -1.2346  -1.2346  -1.1940  -1.1940  -1.1686  -1.1686
+    -1.0660  -1.0660  -1.0462  -1.0462  -1.0167  -1.0167  -0.9933  -0.9933
+    -0.9283  -0.9283  -0.9065  -0.9065   0.3676   0.3676   0.3684   0.3684
+     3.9743   3.9743   3.9763   3.9763   5.8870   5.8870   6.1500   6.1500
+     6.2105   6.2105   6.6264   6.6264   6.7461   6.7461   6.9307   6.9307
+     7.1439   7.1439   7.2334   7.2334   7.4346   7.4346   7.4931   7.4931
+     7.6162   7.6162   7.6258   7.6258   7.8003   7.8003   7.9038   7.9038
+     8.1474   8.1474   8.1682   8.1683   8.3179   8.3180   8.3543   8.3546
+
+          k =-0.5000 0.0000 0.0000 (151410 PWs)   bands (ev):
+
+   -24.9619 -24.9619 -24.9606 -24.9606 -19.6147 -19.6146 -19.6032 -19.6032
+   -19.3415 -19.3415 -19.3184 -19.3184 -18.3660 -18.3660 -18.3543 -18.3543
+   -14.9047 -14.9047 -14.8679 -14.8679 -14.4539 -14.4539 -14.3916 -14.3916
+   -12.6991 -12.6991 -12.6454 -12.6454 -12.5041 -12.5041 -12.4831 -12.4831
+   -12.3612 -12.3612 -12.3311 -12.3311 -11.8630 -11.8630 -11.8283 -11.8283
+    -9.5891  -9.5891  -9.5546  -9.5546  -9.5072  -9.5072  -9.4650  -9.4650
+    -9.1056  -9.1056  -8.9650  -8.9650  -8.8859  -8.8859  -8.8092  -8.8092
+    -8.6490  -8.6490  -8.5306  -8.5306  -8.2251  -8.2251  -8.0101  -8.0101
+    -7.7696  -7.7696  -7.6704  -7.6704  -7.1629  -7.1629  -7.1271  -7.1271
+    -7.0605  -7.0605  -6.9329  -6.9329  -6.7285  -6.7285  -6.6077  -6.6077
+    -6.4651  -6.4651  -6.4236  -6.4235  -6.3771  -6.3771  -6.3246  -6.3246
+    -6.1933  -6.1933  -6.1291  -6.1291  -5.4690  -5.4690  -5.4088  -5.4088
+    -5.0654  -5.0654  -5.0365  -5.0365  -4.8412  -4.8412  -4.7780  -4.7780
+    -4.7323  -4.7323  -4.7099  -4.7099  -4.6749  -4.6749  -4.6003  -4.6003
+    -4.5847  -4.5847  -4.4987  -4.4987  -4.0468  -4.0468  -3.8789  -3.8789
+    -3.5919  -3.5919  -3.4622  -3.4622  -3.3081  -3.3081  -3.2758  -3.2758
+    -3.2541  -3.2541  -3.1868  -3.1868  -3.0968  -3.0968  -3.0786  -3.0786
+    -2.9581  -2.9581  -2.9360  -2.9360  -2.6163  -2.6163  -2.5565  -2.5565
+    -2.4694  -2.4694  -2.4459  -2.4459  -2.2843  -2.2843  -2.2483  -2.2483
+    -2.2088  -2.2088  -2.1919  -2.1919  -1.9768  -1.9768  -1.8402  -1.8402
+    -1.7411  -1.7411  -1.6822  -1.6822  -1.6113  -1.6113  -1.5575  -1.5575
+    -1.5008  -1.5008  -1.4504  -1.4504  -1.4094  -1.4094  -1.3639  -1.3639
+    -1.3376  -1.3376  -1.2526  -1.2526  -1.2186  -1.2185  -1.1962  -1.1962
+    -1.1306  -1.1306  -1.0806  -1.0806  -1.0474  -1.0474  -0.9910  -0.9910
+    -0.8832  -0.8832  -0.8588  -0.8588   0.3532   0.3532   0.3637   0.3637
+     3.9218   3.9218   4.0037   4.0037   5.8133   5.8133   6.0322   6.0322
+     6.2901   6.2901   6.6987   6.6987   6.8102   6.8102   6.9686   6.9686
+     7.0654   7.0654   7.1474   7.1474   7.3963   7.3963   7.6610   7.6610
+     7.6984   7.6984   7.8121   7.8121   7.8958   7.8958   8.0555   8.0555
+     8.1075   8.1076   8.1966   8.1966   8.3781   8.3782   8.4480   8.4480
+
+          k =-0.5000 0.0000-0.5005 (151268 PWs)   bands (ev):
+
+   -24.9612 -24.9612 -24.9612 -24.9612 -19.6090 -19.6090 -19.6090 -19.6090
+   -19.3313 -19.3313 -19.3313 -19.3313 -18.3582 -18.3582 -18.3582 -18.3582
+   -14.8856 -14.8856 -14.8856 -14.8856 -14.4235 -14.4235 -14.4235 -14.4235
+   -12.6832 -12.6832 -12.6832 -12.6832 -12.5011 -12.5011 -12.5011 -12.5011
+   -12.3312 -12.3312 -12.3312 -12.3312 -11.8445 -11.8445 -11.8445 -11.8445
+    -9.6090  -9.6090  -9.6090  -9.6090  -9.4599  -9.4599  -9.4599  -9.4599
+    -9.0389  -9.0389  -9.0389  -9.0389  -8.8754  -8.8754  -8.8754  -8.8754
+    -8.5739  -8.5739  -8.5739  -8.5739  -8.0200  -8.0200  -8.0200  -8.0200
+    -7.7037  -7.7037  -7.7037  -7.7037  -7.1981  -7.1981  -7.1981  -7.1981
+    -7.0085  -7.0085  -7.0085  -7.0085  -6.6989  -6.6989  -6.6989  -6.6989
+    -6.4582  -6.4582  -6.4582  -6.4582  -6.3286  -6.3286  -6.3286  -6.3286
+    -6.1803  -6.1803  -6.1803  -6.1803  -5.4390  -5.4390  -5.4390  -5.4390
+    -5.0550  -5.0550  -5.0550  -5.0550  -4.8280  -4.8280  -4.8280  -4.8280
+    -4.7221  -4.7221  -4.7221  -4.7221  -4.6512  -4.6512  -4.6512  -4.6512
+    -4.4949  -4.4949  -4.4949  -4.4949  -3.9952  -3.9952  -3.9952  -3.9952
+    -3.5395  -3.5395  -3.5395  -3.5395  -3.3636  -3.3636  -3.3636  -3.3636
+    -3.1343  -3.1343  -3.1343  -3.1343  -3.0609  -3.0609  -3.0609  -3.0609
+    -2.9466  -2.9466  -2.9466  -2.9466  -2.5613  -2.5613  -2.5613  -2.5613
+    -2.4551  -2.4551  -2.4551  -2.4551  -2.3560  -2.3560  -2.3560  -2.3560
+    -2.1211  -2.1211  -2.1211  -2.1211  -1.8758  -1.8758  -1.8758  -1.8758
+    -1.7570  -1.7570  -1.7570  -1.7570  -1.5972  -1.5972  -1.5972  -1.5972
+    -1.5138  -1.5138  -1.5138  -1.5138  -1.3691  -1.3691  -1.3691  -1.3691
+    -1.2364  -1.2364  -1.2364  -1.2364  -1.1721  -1.1721  -1.1720  -1.1720
+    -1.0851  -1.0851  -1.0851  -1.0851  -1.0272  -1.0272  -1.0272  -1.0272
+    -0.9196  -0.9196  -0.9196  -0.9196   0.3592   0.3592   0.3592   0.3592
+     3.9852   3.9852   3.9852   3.9852   6.0276   6.0276   6.0276   6.0276
+     6.4344   6.4344   6.4344   6.4344   6.7549   6.7549   6.7549   6.7549
+     7.1408   7.1408   7.1408   7.1408   7.4177   7.4177   7.4177   7.4177
+     7.7685   7.7685   7.7685   7.7685   8.0305   8.0305   8.0305   8.0305
+     8.1020   8.1020   8.1020   8.1020   8.3202   8.3202   8.3202   8.3202
+
+     highest occupied, lowest unoccupied level (ev):     0.3761    3.9206
+
+!    total energy              =   -1724.76359917 Ry
+     Harris-Foulkes estimate   =   -1724.76359917 Ry
+     estimated scf accuracy    <          4.0E-09 Ry
+
+     total all-electron energy =     -6453.993170 Ry
+
+     The total energy is the sum of the following terms:
+
+     one-electron contribution =   -1006.44733413 Ry
+     hartree contribution      =     649.03344551 Ry
+     xc contribution           =    -400.95060585 Ry
+     ewald contribution        =    -465.98357610 Ry
+     Dispersion Correction     =      -0.74913191 Ry
+     one-center paw contrib.   =    -499.66639668 Ry
+
+     convergence has been achieved in  20 iterations
+
+     Forces acting on atoms (cartesian axes, Ry/au):
+
+     atom    1 type  2   force =    -0.00036430   -0.00032124    0.00023117
+     atom    2 type  2   force =     0.00036430    0.00032124    0.00023117
+     atom    3 type  2   force =     0.00036438   -0.00032182    0.00023149
+     atom    4 type  2   force =    -0.00036438    0.00032182    0.00023149
+     atom    5 type  3   force =     0.00033048    0.00046543    0.00055618
+     atom    6 type  3   force =    -0.00033048   -0.00046543    0.00055618
+     atom    7 type  3   force =    -0.00033053    0.00046568    0.00055626
+     atom    8 type  3   force =     0.00033053   -0.00046568    0.00055626
+     atom    9 type  3   force =    -0.00015457   -0.00103323    0.00004883
+     atom   10 type  3   force =     0.00015457    0.00103323    0.00004883
+     atom   11 type  3   force =     0.00015455   -0.00103328    0.00004877
+     atom   12 type  3   force =    -0.00015455    0.00103328    0.00004877
+     atom   13 type  1   force =    -0.00004303   -0.00008280    0.00039250
+     atom   14 type  1   force =     0.00004303    0.00008280    0.00039250
+     atom   15 type  1   force =     0.00004315   -0.00007482    0.00039242
+     atom   16 type  1   force =    -0.00004315    0.00007482    0.00039242
+     atom   17 type  3   force =     0.00065298    0.00022137   -0.00009112
+     atom   18 type  3   force =    -0.00065298   -0.00022137   -0.00009112
+     atom   19 type  3   force =    -0.00065334    0.00022155   -0.00009122
+     atom   20 type  3   force =     0.00065334   -0.00022155   -0.00009122
+     atom   21 type  1   force =    -0.00088138   -0.00064512   -0.00001711
+     atom   22 type  1   force =     0.00088138    0.00064512   -0.00001711
+     atom   23 type  1   force =     0.00088166   -0.00063082   -0.00001645
+     atom   24 type  1   force =    -0.00088166    0.00063082   -0.00001645
+     atom   25 type  3   force =    -0.00028044   -0.00017517    0.00008708
+     atom   26 type  3   force =     0.00028044    0.00017517    0.00008708
+     atom   27 type  3   force =     0.00028060   -0.00017542    0.00008692
+     atom   28 type  3   force =    -0.00028060    0.00017542    0.00008692
+     atom   29 type  3   force =     0.00004795   -0.00020434   -0.00009410
+     atom   30 type  3   force =    -0.00004795    0.00020434   -0.00009410
+     atom   31 type  3   force =    -0.00004813   -0.00020413   -0.00009403
+     atom   32 type  3   force =     0.00004813    0.00020413   -0.00009403
+     atom   33 type  1   force =     0.00058197   -0.00000977    0.00086373
+     atom   34 type  1   force =    -0.00058197    0.00000977    0.00086373
+     atom   35 type  1   force =    -0.00058215   -0.00003091    0.00086343
+     atom   36 type  1   force =     0.00058215    0.00003091    0.00086343
+     atom   37 type  3   force =     0.00060263    0.00022689   -0.00143388
+     atom   38 type  3   force =    -0.00060263   -0.00022689   -0.00143388
+     atom   39 type  3   force =    -0.00060265    0.00022672   -0.00143379
+     atom   40 type  3   force =     0.00060265   -0.00022672   -0.00143379
+     atom   41 type  3   force =     0.00000639    0.00043407    0.00046731
+     atom   42 type  3   force =    -0.00000639   -0.00043407    0.00046731
+     atom   43 type  3   force =    -0.00000649    0.00043437    0.00046729
+     atom   44 type  3   force =     0.00000649   -0.00043437    0.00046729
+     atom   45 type  1   force =    -0.00012145   -0.00061430   -0.00036936
+     atom   46 type  1   force =     0.00012145    0.00061430   -0.00036936
+     atom   47 type  1   force =     0.00012128   -0.00059550   -0.00036887
+     atom   48 type  1   force =    -0.00012128    0.00059550   -0.00036887
+     atom   49 type  3   force =     0.00000372    0.00040090    0.00026520
+     atom   50 type  3   force =    -0.00000372   -0.00040090    0.00026520
+     atom   51 type  3   force =    -0.00000405    0.00040099    0.00026542
+     atom   52 type  3   force =     0.00000405   -0.00040099    0.00026542
+     atom   53 type  3   force =    -0.00067709    0.00016951    0.00029577
+     atom   54 type  3   force =     0.00067709   -0.00016951    0.00029577
+     atom   55 type  3   force =     0.00067716    0.00016946    0.00029570
+     atom   56 type  3   force =    -0.00067716   -0.00016946    0.00029570
+     atom   57 type  1   force =     0.00021508    0.00063035    0.00121960
+     atom   58 type  1   force =    -0.00021508   -0.00063035    0.00121960
+     atom   59 type  1   force =    -0.00021526    0.00061197    0.00121930
+     atom   60 type  1   force =     0.00021526   -0.00061197    0.00121930
+     atom   61 type  3   force =     0.00047083    0.00000550   -0.00058502
+     atom   62 type  3   force =    -0.00047083   -0.00000550   -0.00058502
+     atom   63 type  3   force =    -0.00047106    0.00000592   -0.00058469
+     atom   64 type  3   force =     0.00047106   -0.00000592   -0.00058469
+     atom   65 type  3   force =     0.00046327    0.00003068   -0.00021927
+     atom   66 type  3   force =    -0.00046327   -0.00003068   -0.00021927
+     atom   67 type  3   force =    -0.00046328    0.00003053   -0.00021927
+     atom   68 type  3   force =     0.00046328   -0.00003053   -0.00021927
+     atom   69 type  1   force =     0.00031308   -0.00025909   -0.00016149
+     atom   70 type  1   force =    -0.00031308    0.00025909   -0.00016149
+     atom   71 type  1   force =    -0.00031238   -0.00024518   -0.00016171
+     atom   72 type  1   force =     0.00031238    0.00024518   -0.00016171
+     atom   73 type  3   force =    -0.00109217   -0.00010385   -0.00015927
+     atom   74 type  3   force =     0.00109217    0.00010385   -0.00015927
+     atom   75 type  3   force =     0.00109201   -0.00010413   -0.00015933
+     atom   76 type  3   force =    -0.00109201    0.00010413   -0.00015933
+     atom   77 type  3   force =    -0.00011273   -0.00013536    0.00010750
+     atom   78 type  3   force =     0.00011273    0.00013536    0.00010750
+     atom   79 type  3   force =     0.00011281   -0.00013495    0.00010762
+     atom   80 type  3   force =    -0.00011281    0.00013495    0.00010762
+     atom   81 type  1   force =    -0.00020928   -0.00010090    0.00020235
+     atom   82 type  1   force =     0.00020928    0.00010090    0.00020235
+     atom   83 type  1   force =     0.00020927   -0.00012768    0.00020205
+     atom   84 type  1   force =    -0.00020927    0.00012768    0.00020205
+     atom   85 type  3   force =     0.00018285   -0.00032879    0.00047659
+     atom   86 type  3   force =    -0.00018285    0.00032879    0.00047659
+     atom   87 type  3   force =    -0.00018283   -0.00032874    0.00047654
+     atom   88 type  3   force =     0.00018283    0.00032874    0.00047654
+     atom   89 type  1   force =     0.00050330    0.00049825    0.00004685
+     atom   90 type  1   force =    -0.00050330   -0.00049825    0.00004685
+     atom   91 type  1   force =    -0.00050274    0.00050173    0.00004613
+     atom   92 type  1   force =     0.00050274   -0.00050173    0.00004613
+     atom   93 type  3   force =     0.00034636    0.00032267   -0.00067938
+     atom   94 type  3   force =    -0.00034636   -0.00032267   -0.00067938
+     atom   95 type  3   force =    -0.00034633    0.00032236   -0.00067933
+     atom   96 type  3   force =     0.00034633   -0.00032236   -0.00067933
+     atom   97 type  3   force =    -0.00025485    0.00047626   -0.00017693
+     atom   98 type  3   force =     0.00025485   -0.00047626   -0.00017693
+     atom   99 type  3   force =     0.00025470    0.00047659   -0.00017699
+     atom  100 type  3   force =    -0.00025470   -0.00047659   -0.00017699
+     atom  101 type  1   force =     0.00003296   -0.00041728    0.00011519
+     atom  102 type  1   force =    -0.00003296    0.00041728    0.00011519
+     atom  103 type  1   force =    -0.00003267   -0.00041218    0.00011544
+     atom  104 type  1   force =     0.00003267    0.00041218    0.00011544
+     atom  105 type  3   force =    -0.00036898   -0.00027622    0.00013736
+     atom  106 type  3   force =     0.00036898    0.00027622    0.00013736
+     atom  107 type  3   force =     0.00036891   -0.00027610    0.00013721
+     atom  108 type  3   force =    -0.00036891    0.00027610    0.00013721
+     atom  109 type  3   force =    -0.00017282    0.00009525    0.00053445
+     atom  110 type  3   force =     0.00017282   -0.00009525    0.00053445
+     atom  111 type  3   force =     0.00017276    0.00009494    0.00053453
+     atom  112 type  3   force =    -0.00017276   -0.00009494    0.00053453
+     atom  113 type  1   force =     0.00013761   -0.00031664    0.00037746
+     atom  114 type  1   force =    -0.00013761    0.00031664    0.00037746
+     atom  115 type  1   force =    -0.00013793   -0.00031597    0.00037718
+     atom  116 type  1   force =     0.00013793    0.00031597    0.00037718
+     atom  117 type  3   force =     0.00000220    0.00060706   -0.00045786
+     atom  118 type  3   force =    -0.00000220   -0.00060706   -0.00045786
+     atom  119 type  3   force =    -0.00000217    0.00060783   -0.00045789
+     atom  120 type  3   force =     0.00000217   -0.00060783   -0.00045789
+     atom  121 type  3   force =     0.00026776   -0.00035145   -0.00061837
+     atom  122 type  3   force =    -0.00026776    0.00035145   -0.00061837
+     atom  123 type  3   force =    -0.00026781   -0.00035106   -0.00061850
+     atom  124 type  3   force =     0.00026781    0.00035106   -0.00061850
+     atom  125 type  1   force =     0.00003187    0.00025138    0.00037568
+     atom  126 type  1   force =    -0.00003187   -0.00025138    0.00037568
+     atom  127 type  1   force =    -0.00003206    0.00025574    0.00037612
+     atom  128 type  1   force =     0.00003206   -0.00025574    0.00037612
+     atom  129 type  3   force =    -0.00099391    0.00022945    0.00048382
+     atom  130 type  3   force =     0.00099391   -0.00022945    0.00048382
+     atom  131 type  3   force =     0.00099401    0.00022941    0.00048386
+     atom  132 type  3   force =    -0.00099401   -0.00022941    0.00048386
+     atom  133 type  3   force =     0.00029333   -0.00022421   -0.00020507
+     atom  134 type  3   force =    -0.00029333    0.00022421   -0.00020507
+     atom  135 type  3   force =    -0.00029337   -0.00022407   -0.00020529
+     atom  136 type  3   force =     0.00029337    0.00022407   -0.00020529
+     atom  137 type  1   force =     0.00035471   -0.00003243   -0.00080275
+     atom  138 type  1   force =    -0.00035471    0.00003243   -0.00080275
+     atom  139 type  1   force =    -0.00035483   -0.00004782   -0.00080325
+     atom  140 type  1   force =     0.00035483    0.00004782   -0.00080325
+     atom  141 type  3   force =    -0.00004946    0.00027416   -0.00028378
+     atom  142 type  3   force =     0.00004946   -0.00027416   -0.00028378
+     atom  143 type  3   force =     0.00004967    0.00027422   -0.00028394
+     atom  144 type  3   force =    -0.00004967   -0.00027422   -0.00028394
+     atom  145 type  3   force =    -0.00022717    0.00005725    0.00003964
+     atom  146 type  3   force =     0.00022717   -0.00005725    0.00003964
+     atom  147 type  3   force =     0.00022715    0.00005753    0.00003972
+     atom  148 type  3   force =    -0.00022715   -0.00005753    0.00003972
+     atom  149 type  2   force =    -0.00028464    0.00109599   -0.00217029
+     atom  150 type  2   force =     0.00028464   -0.00109599   -0.00217029
+     atom  151 type  2   force =     0.00028196    0.00109342   -0.00217025
+     atom  152 type  2   force =    -0.00028196   -0.00109342   -0.00217025
+     atom  153 type  4   force =     0.00223051   -0.00086716    0.00076175
+     atom  154 type  4   force =    -0.00223051    0.00086716    0.00076175
+     atom  155 type  4   force =    -0.00222568   -0.00086328    0.00076330
+     atom  156 type  4   force =     0.00222568    0.00086328    0.00076330
+     atom  157 type  4   force =    -0.00056130   -0.00184314   -0.00056137
+     atom  158 type  4   force =     0.00056130    0.00184314   -0.00056137
+     atom  159 type  4   force =     0.00056311   -0.00183794   -0.00056342
+     atom  160 type  4   force =    -0.00056311    0.00183794   -0.00056342
+     atom  161 type  4   force =    -0.00105120    0.00060884    0.00100036
+     atom  162 type  4   force =     0.00105120   -0.00060884    0.00100036
+     atom  163 type  4   force =     0.00105216    0.00060933    0.00100160
+     atom  164 type  4   force =    -0.00105216   -0.00060933    0.00100160
+
+     Total force =     0.012503     Total SCF correction =     0.000135
+
+
+     Computing stress (Cartesian axis) and pressure
+
+          total   stress  (Ry/bohr**3)                   (kbar)     P=   -5.62
+  -0.00003384  -0.00000000   0.00000000         -4.98     -0.00      0.00
+  -0.00000000  -0.00004844   0.00000000         -0.00     -7.13      0.00
+   0.00000000   0.00000000  -0.00003235          0.00      0.00     -4.76
+
+
+     Writing output data file scf.save
+ 
+     init_run     :     42.57s CPU     44.56s WALL (       1 calls)
+     electrons    :   1760.14s CPU   1845.33s WALL (       1 calls)
+     forces       :     20.39s CPU     20.75s WALL (       1 calls)
+     stress       :    151.45s CPU    151.81s WALL (       1 calls)
+
+     Called by init_run:
+     wfcinit      :     34.31s CPU     36.07s WALL (       1 calls)
+     potinit      :      2.80s CPU      2.85s WALL (       1 calls)
+
+     Called by electrons:
+     c_bands      :   1565.48s CPU   1636.50s WALL (      20 calls)
+     sum_band     :    171.29s CPU    182.43s WALL (      20 calls)
+     v_of_rho     :      3.77s CPU      4.15s WALL (      21 calls)
+     newd         :      8.48s CPU     11.16s WALL (      21 calls)
+     PAW_pot      :      9.62s CPU      9.63s WALL (      21 calls)
+     mix_rho      :      1.08s CPU      1.16s WALL (      20 calls)
+
+     Called by c_bands:
+     init_us_2    :     10.99s CPU     11.05s WALL (     172 calls)
+     cegterg      :   1530.25s CPU   1601.22s WALL (      80 calls)
+
+     Called by sum_band:
+     sum_band:bec :      0.08s CPU      0.08s WALL (      80 calls)
+     addusdens    :      9.61s CPU     12.14s WALL (      20 calls)
+
+     Called by *egterg:
+     h_psi        :    893.88s CPU    951.56s WALL (     391 calls)
+     s_psi        :    163.88s CPU    163.90s WALL (     391 calls)
+     g_psi        :      4.82s CPU      4.82s WALL (     307 calls)
+     cdiaghg      :     68.76s CPU     68.77s WALL (     387 calls)
+
+     Called by h_psi:
+     h_psi:pot    :    886.99s CPU    944.57s WALL (     391 calls)
+     h_psi:calbec :    160.20s CPU    160.51s WALL (     391 calls)
+     vloc_psi     :    562.52s CPU    619.75s WALL (     391 calls)
+     add_vuspsi   :    164.28s CPU    164.31s WALL (     391 calls)
+
+     General routines
+     calbec       :    229.90s CPU    230.33s WALL (     491 calls)
+     fft          :      4.02s CPU      4.65s WALL (     297 calls)
+     fftw         :    601.38s CPU    666.80s WALL (  133212 calls)
+ 
+     Parallel routines
+     fft_scatter  :    101.29s CPU    165.64s WALL (  133509 calls)
+ 
+     PWSCF        : 33m 3.09s CPU    35m 2.22s WALL
+
+ 
+   This run was terminated on:   2:22: 2   8Dec2017            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=

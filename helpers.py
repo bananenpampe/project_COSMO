@@ -1,10 +1,10 @@
 import numpy as np
 from ase.io import read
 
-def load_CSD_data(PATH, random_subsample=None):
+def load_CSD_data(PATH, prop_string, random_subsample=None):
     """Helper function that loads the CSD-2K and CSD-500 dataset
        The CSD-X dataset are .txt files of joined extended-xyz files. Where unit cell parameters are given in the comment line
-       And atom wise calculated GIPAW shifts, are stored in additional atom-wise collums. ast additional colum is GIPAW.
+       And atom wise calculated GIPAW shifts, are stored in additional atom-wise collums. first additional colum is GIPAW.
        In CSD-500 another column is given with the 
     
     Parameters
@@ -12,6 +12,9 @@ def load_CSD_data(PATH, random_subsample=None):
     PATH             : string
                        absolut path of the dataset .txt file
     
+    prop_string      : string
+                       Key string of property array that is stored in atoms.arrays 
+                       
     random_subsample : int < dataset_size
                        returns a random subsample of the dataset with N(random_subsample) entries
                        
@@ -39,12 +42,11 @@ def load_CSD_data(PATH, random_subsample=None):
         np.random.shuffle(ids)
         train_ids = ids[:random_subsample]
         structures_subsample = [structures[ii] for ii in ids[:random_subsample]]
-        shifts_subsample = np.concatenate([atoms.arrays["CS"] for atoms in structures_subsample])
+        shifts_subsample = np.concatenate([atoms.arrays[prop_string] for atoms in structures_subsample])
         return structures_subsample, shifts_subsample
         
-        
     else:
-        shifts = np.concatenate([atoms.arrays["CS"] for atoms in structures])
+        shifts = np.concatenate([atoms.arrays[prop_string] for atoms in structures])
         return structures, shifts
 
 
