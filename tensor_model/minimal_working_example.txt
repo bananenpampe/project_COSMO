@@ -1,0 +1,13 @@
+from rascal.utils import ClebschGordanReal, xyz_to_spherical, spherical_to_xyz
+#assuming the atomic-wise tensors are already given in a numpy array tcs of shape (N_envs,3,3)
+
+cg = ClebschGordanReal(lmax=2)
+tcs_coupled = cg.couple(xyz_to_spherical(tcs))
+
+#The irreps can be accessed in the dict by the key (1,1) -> (l=1,l=1) 
+#and the irreps as 1st env irrep: [0][0]-> l=0, [1][0] -> l=1 etc..
+print(tcs_coupled[(1,1)][0][0], tcs_coupled[(1,1)][1][0], tcs_coupled[(1,1)][2][0])
+
+#testing backtransformation
+tcs_cart = spherical_to_xyz(cg.decouple(tcs_coupled))
+np.allclose(tcs_cart, tcs)
