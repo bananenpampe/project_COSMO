@@ -1,5 +1,18 @@
 import numpy as np
 from ase.io import read
+import itertools
+
+
+def grouper(n, iterable):
+    """Helper function that yields an iterable in chunks of n
+    """
+    #from https://stackoverflow.com/questions/8991506/iterate-an-iterator-by-chunks-of-n-in-python
+    it = iter(iterable)
+    while True:
+        chunk = tuple(itertools.islice(it, n))
+        if not chunk:
+            return
+        yield chunk
 
 def load_CSD_data(PATH, prop_string, random_subsample=None):
     """Helper function that loads the CSD-2K and CSD-500 dataset
