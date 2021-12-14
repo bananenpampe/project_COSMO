@@ -1,5 +1,41 @@
 import numpy as np
 from ase.io import read
+import itertools
+
+
+def grouper(n, iterable):
+    """Helper function that yields an iterable in chunks of n
+    """
+    #from https://stackoverflow.com/questions/8991506/iterate-an-iterator-by-chunks-of-n-in-python
+    it = iter(iterable)
+    while True:
+        chunk = tuple(itertools.islice(it, n))
+        if not chunk:
+            return
+        yield chunk
+        
+def filter_by_status(frames, status="PASSING"):
+    """Helper function that filters structures by info dict 'STATUS' entry
+    """
+    return [frame for frame in frames if frame.info['STATUS'] == status]
+
+def retrieve_features(calculator, chunk):
+    """helper function that allows for calling a class method in joblib
+    """
+    return calculator.transform(chunk).get_features(calculator)
+
+
+def get_features_in_parallel(frames,calculator,blocksize=100,n_jobs=-1):
+    """helper function that returns the features of a calculator (from calculator.transform())
+       in parallel
+    """
+    #for np.concatenate. arrays in list should all have same shape
+    hypers = calculator.hypers
+    hypers["expansion_by_species_method"] = "user defined"
+    hypers["global_species"] = get_all_species(frames).tolist()
+    calculator.update_hyperparameters(**hypers)
+    return np.concatenate(Parallel(n_jobs=2)(delayed(retrieve_features)(calculator, chunk)\
+                                              for chunk in grouper(blocksize,frames)))
 
 def load_CSD_data(PATH, prop_string, random_subsample=None):
     """Helper function that loads the CSD-2K and CSD-500 dataset
@@ -35,7 +71,7 @@ def load_CSD_data(PATH, prop_string, random_subsample=None):
 
         
     for atom in structures:
-        atom.wrap()
+        atom.wrap(eps=1e-12)
         
     if random_subsample is not None:
         ids = list(range(len(structures)))
@@ -103,3 +139,63 @@ def make_element_wise_environments(calculator,frames,y=None,select=False):
         return X_element_wise[select], y_element_wise[select] 
     else:
         return X_element_wise, y_element_wise
+    
+
+def return_element_wise_environments(descriptors,calculator,frames,y=None,select=False):
+    """Returns shifts and environments of only one atomtype from the atoms in frames. 
+       Or returns a dictionary of atomic-type-wise 
+    
+    Parameters
+    ----------
+    calculator : rascal.representations calculator object
+                 calculator object with hyperparameters 
+                 
+    descriptors: numpy array of shape (N_environments,XX)
+                 array containing precomputet descriptor features
+    
+    frames     : list of ase.atoms objects
+                 wrapped structures of the dataset
+    
+    y          : numpy array of shape (N_environments,X)
+                 array of atomic properties
+                 
+    select     : int
+                 atomic number to select atomic species
+    Returns
+    -------
+    
+    X_element_wise: dict or numpy.array
+                    either dict with atomic numbers keys containing the representations in numpy array, 
+                    or numpy array with representations of the selected atomic species
+    y_element_wise: dict or numpy.array
+                    either dict with atomic numbers keys containing the shifts in numpy arrays, 
+                    or numpy array with representations of the selected atomic species
+    
+    """
+    
+    
+    #get unique elements 
+    y_element_wise = {}
+    X_element_wise = {}
+    
+    atoms_list = calculator.transform(frames)
+    X_repr = descriptors
+    elements = np.unique(atoms_list.get_representation_info()[:,2])
+    
+
+    for element in elements:
+        
+        ind = atoms_list.get_representation_info()[:,2] == element
+        
+        if y is not None:
+            y_element_wise[element] = y[ind]
+        X_element_wise[element] = X_repr[ind]
+    
+    #TODO: Change this not to loop over array
+    if select is not None:
+        return X_element_wise[select], y_element_wise[select] 
+    else:
+        return X_element_wise, y_element_wise
+    
+    
+    
