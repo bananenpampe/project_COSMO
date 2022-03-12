@@ -1,0 +1,1893 @@
+
+     Program QE v.6.1 (svn rev. 13369) starts on 29Apr2018 at  9:23:57 
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI), running on     8 processors
+     R & G space division:  proc/nbgrp/npool/nimage =       8
+ 
+     ***** This is GIPAW svn revision unknown      *****
+ 
+     Parallelizing q-star over 1 images
+     Message from routine gipaw_readin:
+     *** iverbosity is obsolete, use verbosity instead ***
+
+     Reading data from directory:
+     /scratch/paruzzo/QEspresso/CCDC_plusS/DEDWER/wfc/scf.save
+
+   Info: using nr1, nr2, nr3 values from input
+
+   Info: using nr1, nr2, nr3 values from input
+
+     IMPORTANT: XC functional enforced from input :
+     Exchange-correlation      =  SLA  PW   PBX  PBC ( 1  4  3  4 0 0)
+     Any further DFT definition will be discarded
+     Please, verify this is what you really want
+
+               file C.pbe-n-kjpaw_psl.0.1.UPF: wavefunction(s)  2P renormalized
+               file N.pbe-n-kjpaw_psl.0.1.UPF: wavefunction(s)  2P renormalized
+               file H.pbe-kjpaw_psl.0.1.UPF: wavefunction(s)  1S renormalized
+               file O.pbe-n-kjpaw_psl.0.1.UPF: wavefunction(s)  2P renormalized
+               file S.pbe-n-kjpaw_psl.0.1.UPF: wavefunction(s)  3P renormalized
+ 
+     Parallelization info
+     --------------------
+     sticks:   dense  smooth     PW     G-vecs:    dense   smooth      PW
+     Min        1164    1164    306                59772    59772    8098
+     Max        1165    1165    307                59775    59775    8100
+     Sum        9317    9317   2451               478185   478185   64793
+ 
+
+     Check: negative/imaginary core charge=   -0.000002    0.000000
+
+     Subspace diagonalization in iterative solution of the eigenvalue problem:
+     a serial algorithm will be used
+
+     GIPAW projectors -----------------------------------------------
+     atom=  C    l=0  rc=    1.3000  rs=    0.8667
+     atom=  C    l=0  rc=    1.3000  rs=    0.8667
+     atom=  C    l=1  rc=    1.4500  rs=    0.9667
+     atom=  C    l=1  rc=    1.4500  rs=    0.9667
+     projs nearly linearly dependent: l=0  n1,n2= 1, 2  s=  0.99877758
+     projs nearly linearly dependent: l=1  n1,n2= 1, 2  s=  0.99940894
+ 
+     atom=  N    l=0  rc=    1.3000  rs=    0.8667
+     atom=  N    l=0  rc=    1.3000  rs=    0.8667
+     atom=  N    l=1  rc=    1.4500  rs=    0.9667
+     atom=  N    l=1  rc=    1.4500  rs=    0.9667
+     projs nearly linearly dependent: l=0  n1,n2= 1, 2  s=  0.99709514
+     projs nearly linearly dependent: l=1  n1,n2= 1, 2  s=  0.99857174
+ 
+     atom=  H    l=0  rc=    1.0000  rs=    0.6667
+     atom=  H    l=0  rc=    1.0000  rs=    0.6667
+     projs nearly linearly dependent: l=0  n1,n2= 1, 2  s=  0.99968852
+ 
+     atom=  O    l=0  rc=    1.3500  rs=    0.9000
+     atom=  O    l=0  rc=    1.3500  rs=    0.9000
+     atom=  O    l=1  rc=    1.3500  rs=    0.9000
+     atom=  O    l=1  rc=    1.3500  rs=    0.9000
+     projs nearly linearly dependent: l=0  n1,n2= 1, 2  s=  0.99100135
+     projs nearly linearly dependent: l=1  n1,n2= 1, 2  s=  0.99790100
+ 
+     atom=  S    l=0  rc=    2.1000  rs=    1.4000
+     atom=  S    l=0  rc=    2.1000  rs=    1.4000
+     atom=  S    l=1  rc=    2.1000  rs=    1.4000
+     atom=  S    l=1  rc=    2.1000  rs=    1.4000
+     -----------------------------------------------------------------
+ 
+     alpha_pv=     42.7325 eV
+ 
+     q-space interpolation up to   110.00 Rydberg
+ 
+     GIPAW job: nmr                                                                             
+     NMR macroscopic correction: yes
+             0.6667          0.0000          0.0000
+             0.0000          0.6667          0.0000
+             0.0000          0.0000          0.6667
+
+ 
+     Largest allocated arrays     est. size (Mb)     dimensions
+        KS wavefunctions at k          11.49 Mb     (    7529,  100)
+        KS wavefunctions at k+q        11.49 Mb     (    7529,  100)
+        First-order wavefunctions     114.88 Mb     (    7529,  100, 10)
+        First-order wavefunct (US)     68.93 Mb     (    7529,  100,  6)
+        Charge/spin density             0.93 Mb     (  121500,    1)
+        Induced current                 8.34 Mb     (  121500,    3,3,1)
+        Induced magnetic field          8.34 Mb     (  121500,    3,3,1)
+        NL pseudopotentials            32.17 Mb     (    7529,  280)
+        GIPAW NL terms                 32.17 Mb     (    7529,  280)
+ 
+     Computing the magnetic susceptibility     isolve=0    ethr=  0.1000E-13
+     k-point #    1 of     8      pool #  1    cpu time:       7.8
+     Rotating WFCS
+     c_bands:  2 eigenvalues not converged
+     ATTENTION: ik=   1  ibnd= 99  eigenvalues differ too much!
+         7.8282      7.6030
+     ATTENTION: ik=   1  ibnd=100  eigenvalues differ too much!
+         8.0471      7.8262
+     Rotating WFCS
+     c_bands:  1 eigenvalues not converged
+     ATTENTION: ik=   1  ibnd= 99  eigenvalues differ too much!
+         7.8282      7.6044
+     ATTENTION: ik=   1  ibnd=100  eigenvalues differ too much!
+         8.0471      7.8269
+     Rotating WFCS
+     c_bands:  1 eigenvalues not converged
+     ATTENTION: ik=   1  ibnd= 99  eigenvalues differ too much!
+         7.8282      7.6044
+     ATTENTION: ik=   1  ibnd=100  eigenvalues differ too much!
+         8.0471      7.8269
+     Rotating WFCS
+     ATTENTION: ik=   1  ibnd= 99  eigenvalues differ too much!
+         7.8282      7.6044
+     ATTENTION: ik=   1  ibnd=100  eigenvalues differ too much!
+         8.0471      7.8248
+     Rotating WFCS
+     ATTENTION: ik=   1  ibnd= 99  eigenvalues differ too much!
+         7.8282      7.6044
+     ATTENTION: ik=   1  ibnd=100  eigenvalues differ too much!
+         8.0471      7.8248
+     Rotating WFCS
+     c_bands:  2 eigenvalues not converged
+     ATTENTION: ik=   1  ibnd= 99  eigenvalues differ too much!
+         7.8282      7.6042
+     ATTENTION: ik=   1  ibnd=100  eigenvalues differ too much!
+         8.0471      7.8282
+     Rotating WFCS
+     c_bands:  2 eigenvalues not converged
+     ATTENTION: ik=   1  ibnd= 99  eigenvalues differ too much!
+         7.8282      7.6042
+     ATTENTION: ik=   1  ibnd=100  eigenvalues differ too much!
+         8.0471      7.8282
+     k-point #    2 of     8      pool #  1    cpu time:    1289.5
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     c_bands:  2 eigenvalues not converged
+     Rotating WFCS
+     c_bands:  2 eigenvalues not converged
+     k-point #    3 of     8      pool #  1    cpu time:    2661.8
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     k-point #    4 of     8      pool #  1    cpu time:    3972.6
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     k-point #    5 of     8      pool #  1    cpu time:    5379.9
+     Rotating WFCS
+     c_bands:  1 eigenvalues not converged
+     Rotating WFCS
+     Rotating WFCS
+     c_bands:  1 eigenvalues not converged
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     c_bands:  2 eigenvalues not converged
+     Rotating WFCS
+     c_bands:  2 eigenvalues not converged
+     k-point #    6 of     8      pool #  1    cpu time:    6738.0
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     k-point #    7 of     8      pool #  1    cpu time:    8168.4
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     k-point #    8 of     8      pool #  1    cpu time:    9476.3
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     Rotating WFCS
+     End of magnetic susceptibility calculation
+ 
+     f-sum rule (1st term):
+          -165.2913          0.0000          0.0000
+             0.0000       -165.1589          0.0000
+             0.0000          0.0000       -165.1565
+
+     f-sum rule (2nd term):
+            -2.6998          0.0000          0.0000
+             0.0000         -2.8323          0.0000
+             0.0000          0.0000         -2.8370
+
+     f-sum rule (should be  -167.9921):
+          -167.9910          0.0000          0.0000
+             0.0000       -167.9911          0.0000
+             0.0000          0.0000       -167.9935
+
+     chi_bare pGv (HH) in paratec units:
+       -41.604946     -0.000390      0.115549
+        -0.000427    -46.633590      0.001232
+         0.161844      0.000408    -79.829281
+
+       -41.604946      0.000000      0.000000
+         0.000000    -46.633590      0.000000
+         0.000000      0.000000    -79.829281
+
+     chi_bare vGv (VV) in paratec units:
+       -35.932446     -0.000292      0.106656
+        -0.000378    -39.983489      0.000926
+         0.106650      0.000562    -76.778024
+
+       -35.932446      0.000000      0.000000
+         0.000000    -39.983489      0.000000
+         0.000000      0.000000    -76.778024
+
+     chi_bare pGv (HH) in 10^{-6} cm^3/mol:
+          -197.7106          0.0000          0.0000
+             0.0000       -221.6072          0.0000
+             0.0000          0.0000       -379.3563
+
+     chi_bare vGv (VV) in 10^{-6} cm^3/mol:
+          -170.7544          0.0000          0.0000
+             0.0000       -190.0053          0.0000
+             0.0000          0.0000       -364.8564
+
+     Contributions to the NMR chemical shifts: -------------------------------
+ 
+     Macroscopic shape contribution in ppm:                    7.06
+             5.2438          0.0000          0.0000
+             0.0000          5.8776          0.0000
+             0.0000          0.0000         10.0615
+
+ 
+     Core contribution in ppm:
+ 
+     Atom  1  S   pos: (  0.948142  0.719533  0.236099)  core sigma:         979.79
+     Atom  2  S   pos: (  0.051858  1.062473  0.708296)  core sigma:         979.79
+     Atom  3  S   pos: (  0.051858  1.610536  0.236099)  core sigma:         979.79
+     Atom  4  S   pos: (  0.948142  0.171470  0.708296)  core sigma:         979.79
+     Atom  5  O   pos: (  0.407542  0.933531  0.236099)  core sigma:         271.07
+     Atom  6  O   pos: (  0.592458  0.848475  0.708296)  core sigma:         271.07
+     Atom  7  O   pos: (  0.592458  0.042528  0.236099)  core sigma:         271.07
+     Atom  8  O   pos: (  0.407542  1.739478  0.708296)  core sigma:         271.07
+     Atom  9  O   pos: (  0.700638  1.093855  0.236099)  core sigma:         271.07
+     Atom 10  O   pos: (  0.299362  0.688151  0.708296)  core sigma:         271.07
+     Atom 11  O   pos: (  0.299362  0.202852  0.236099)  core sigma:         271.07
+     Atom 12  O   pos: (  0.700638  1.579154  0.708296)  core sigma:         271.07
+     Atom 13  N   pos: (  0.738396  0.405742  0.236099)  core sigma:         235.78
+     Atom 14  N   pos: (  0.261604  1.376264  0.708296)  core sigma:         235.78
+     Atom 15  N   pos: (  0.261604  1.296745  0.236099)  core sigma:         235.78
+     Atom 16  N   pos: (  0.738396  0.485261  0.708296)  core sigma:         235.78
+     Atom 17  C   pos: (  0.695180  0.743418  0.236099)  core sigma:         200.51
+     Atom 18  C   pos: (  0.304820  1.038588  0.708296)  core sigma:         200.51
+     Atom 19  C   pos: (  0.304820  1.634421  0.236099)  core sigma:         200.51
+     Atom 20  C   pos: (  0.695180  0.147585  0.708296)  core sigma:         200.51
+     Atom 21  C   pos: (  0.922771  0.467740  0.236099)  core sigma:         200.51
+     Atom 22  C   pos: (  0.077229  1.314266  0.708296)  core sigma:         200.51
+     Atom 23  C   pos: (  0.077229  1.358743  0.236099)  core sigma:         200.51
+     Atom 24  C   pos: (  0.922771  0.423263  0.708296)  core sigma:         200.51
+     Atom 25  H   pos: (  0.049707  0.368508  0.236099)  core sigma:           0.00
+     Atom 26  H   pos: (  0.950293  1.413498  0.708296)  core sigma:           0.00
+     Atom 27  H   pos: (  0.950293  1.259511  0.236099)  core sigma:           0.00
+     Atom 28  H   pos: (  0.049707  0.522495  0.708296)  core sigma:           0.00
+     Atom 29  C   pos: (  0.608801  0.559638  0.236099)  core sigma:         200.51
+     Atom 30  C   pos: (  0.391199  1.222368  0.708296)  core sigma:         200.51
+     Atom 31  C   pos: (  0.391199  1.450641  0.236099)  core sigma:         200.51
+     Atom 32  C   pos: (  0.608801  0.331365  0.708296)  core sigma:         200.51
+     Atom 33  H   pos: (  0.452149  0.528990  0.236099)  core sigma:           0.00
+     Atom 34  H   pos: (  0.547851  1.253016  0.708296)  core sigma:           0.00
+     Atom 35  H   pos: (  0.547851  1.419993  0.236099)  core sigma:           0.00
+     Atom 36  H   pos: (  0.452149  0.362013  0.708296)  core sigma:           0.00
+     Atom 37  C   pos: (  0.602660  0.940296  0.236099)  core sigma:         200.51
+     Atom 38  C   pos: (  0.397340  0.841710  0.708296)  core sigma:         200.51
+     Atom 39  C   pos: (  0.397340  0.049293  0.236099)  core sigma:         200.51
+     Atom 40  C   pos: (  0.602660  1.732713  0.708296)  core sigma:         200.51
+     Atom 41  H   pos: (  0.349608  1.077396  0.236099)  core sigma:           0.00
+     Atom 42  H   pos: (  0.650392  0.704610  0.708296)  core sigma:           0.00
+     Atom 43  H   pos: (  0.650392  0.186393  0.236099)  core sigma:           0.00
+     Atom 44  H   pos: (  0.349608  1.595613  0.708296)  core sigma:           0.00
+ 
+     Bare contribution in ppm:
+ 
+     Atom  1  S   pos: (  0.948142  0.719533  0.236099)  bare sigma:           6.03
+            -7.5991         -2.3770         -0.0000
+            -7.2551          6.3309          0.0000
+            -0.0000         -0.0000         19.3650
+
+     Atom  2  S   pos: (  0.051858  1.062473  0.708296)  bare sigma:           6.03
+            -7.5991         -2.3770         -0.0000
+            -7.2551          6.3309         -0.0000
+             0.0000          0.0000         19.3650
+
+     Atom  3  S   pos: (  0.051858  1.610536  0.236099)  bare sigma:           6.03
+            -7.5991          2.3770          0.0000
+             7.2551          6.3309         -0.0000
+             0.0000         -0.0000         19.3650
+
+     Atom  4  S   pos: (  0.948142  0.171470  0.708296)  bare sigma:           6.03
+            -7.5991          2.3770          0.0000
+             7.2551          6.3309         -0.0000
+            -0.0000          0.0000         19.3650
+
+     Atom  5  O   pos: (  0.407542  0.933531  0.236099)  bare sigma:          18.79
+            36.7333        -22.6477          0.0000
+             7.7241        -24.4509          0.0000
+            -0.0000          0.0000         44.0783
+
+     Atom  6  O   pos: (  0.592458  0.848475  0.708296)  bare sigma:          18.79
+            36.7333        -22.6477          0.0000
+             7.7241        -24.4509         -0.0000
+             0.0000          0.0000         44.0783
+
+     Atom  7  O   pos: (  0.592458  0.042528  0.236099)  bare sigma:          18.79
+            36.7333         22.6477          0.0000
+            -7.7241        -24.4509          0.0000
+             0.0000         -0.0000         44.0783
+
+     Atom  8  O   pos: (  0.407542  1.739478  0.708296)  bare sigma:          18.79
+            36.7333         22.6477         -0.0000
+            -7.7241        -24.4509         -0.0000
+            -0.0000          0.0000         44.0783
+
+     Atom  9  O   pos: (  0.700638  1.093855  0.236099)  bare sigma:         -23.90
+           -68.3100         -5.3418          0.0000
+           -15.6767        -60.6592          0.0000
+             0.0000         -0.0000         57.2738
+
+     Atom 10  O   pos: (  0.299362  0.688151  0.708296)  bare sigma:         -23.90
+           -68.3100         -5.3418         -0.0000
+           -15.6767        -60.6592         -0.0000
+            -0.0000         -0.0000         57.2738
+
+     Atom 11  O   pos: (  0.299362  0.202852  0.236099)  bare sigma:         -23.90
+           -68.3100          5.3418         -0.0000
+            15.6767        -60.6592          0.0000
+             0.0000          0.0000         57.2738
+
+     Atom 12  O   pos: (  0.700638  1.579154  0.708296)  bare sigma:         -23.90
+           -68.3100          5.3418          0.0000
+            15.6767        -60.6592         -0.0000
+             0.0000         -0.0000         57.2738
+
+     Atom 13  N   pos: (  0.738396  0.405742  0.236099)  bare sigma:         -50.86
+          -120.3475         23.9739         -0.0000
+            15.1296        -74.3750         -0.0000
+            -0.0000         -0.0000         42.1424
+
+     Atom 14  N   pos: (  0.261604  1.376264  0.708296)  bare sigma:         -50.86
+          -120.3475         23.9739          0.0000
+            15.1296        -74.3750          0.0000
+            -0.0000         -0.0000         42.1424
+
+     Atom 15  N   pos: (  0.261604  1.296745  0.236099)  bare sigma:         -50.86
+          -120.3475        -23.9739          0.0000
+           -15.1296        -74.3750          0.0000
+            -0.0000          0.0000         42.1424
+
+     Atom 16  N   pos: (  0.738396  0.485261  0.708296)  bare sigma:         -50.86
+          -120.3475        -23.9739         -0.0000
+           -15.1296        -74.3750          0.0000
+             0.0000         -0.0000         42.1424
+
+     Atom 17  C   pos: (  0.695180  0.743418  0.236099)  bare sigma:         -56.14
+           -69.8790          7.4219         -0.0000
+            14.8062        -72.3322         -0.0000
+            -0.0000         -0.0000        -26.2142
+
+     Atom 18  C   pos: (  0.304820  1.038588  0.708296)  bare sigma:         -56.14
+           -69.8790          7.4219          0.0000
+            14.8062        -72.3322         -0.0000
+            -0.0000          0.0000        -26.2142
+
+     Atom 19  C   pos: (  0.304820  1.634421  0.236099)  bare sigma:         -56.14
+           -69.8790         -7.4219          0.0000
+           -14.8062        -72.3322         -0.0000
+            -0.0000         -0.0000        -26.2142
+
+     Atom 20  C   pos: (  0.695180  0.147585  0.708296)  bare sigma:         -56.14
+           -69.8790         -7.4219          0.0000
+           -14.8062        -72.3322         -0.0000
+            -0.0000          0.0000        -26.2142
+
+     Atom 21  C   pos: (  0.922771  0.467740  0.236099)  bare sigma:         -67.83
+          -105.5000         17.9737          0.0000
+             7.7050        -82.5994         -0.0000
+             0.0000         -0.0000        -15.4003
+
+     Atom 22  C   pos: (  0.077229  1.314266  0.708296)  bare sigma:         -67.83
+          -105.5000         17.9737         -0.0000
+             7.7050        -82.5994         -0.0000
+             0.0000         -0.0000        -15.4003
+
+     Atom 23  C   pos: (  0.077229  1.358743  0.236099)  bare sigma:         -67.83
+          -105.5000        -17.9737          0.0000
+            -7.7050        -82.5994          0.0000
+             0.0000         -0.0000        -15.4003
+
+     Atom 24  C   pos: (  0.922771  0.423263  0.708296)  bare sigma:         -67.83
+          -105.5000        -17.9737          0.0000
+            -7.7050        -82.5994         -0.0000
+            -0.0000         -0.0000        -15.4003
+
+     Atom 25  H   pos: (  0.049707  0.368508  0.236099)  bare sigma:          12.71
+            15.7347         -2.2494          0.0000
+            -3.1966         16.0191         -0.0000
+             0.0000         -0.0000          6.3739
+
+     Atom 26  H   pos: (  0.950293  1.413498  0.708296)  bare sigma:          12.71
+            15.7347         -2.2494         -0.0000
+            -3.1966         16.0191         -0.0000
+            -0.0000          0.0000          6.3739
+
+     Atom 27  H   pos: (  0.950293  1.259511  0.236099)  bare sigma:          12.71
+            15.7347          2.2494          0.0000
+             3.1966         16.0191         -0.0000
+             0.0000          0.0000          6.3739
+
+     Atom 28  H   pos: (  0.049707  0.522495  0.708296)  bare sigma:          12.71
+            15.7347          2.2494          0.0000
+             3.1966         16.0191          0.0000
+             0.0000          0.0000          6.3739
+
+     Atom 29  C   pos: (  0.608801  0.559638  0.236099)  bare sigma:         -60.50
+           -95.1582          1.1719          0.0000
+            19.1548        -74.1349          0.0000
+             0.0000         -0.0000        -12.2187
+
+     Atom 30  C   pos: (  0.391199  1.222368  0.708296)  bare sigma:         -60.50
+           -95.1582          1.1719         -0.0000
+            19.1548        -74.1349          0.0000
+            -0.0000         -0.0000        -12.2187
+
+     Atom 31  C   pos: (  0.391199  1.450641  0.236099)  bare sigma:         -60.50
+           -95.1582         -1.1719         -0.0000
+           -19.1548        -74.1349         -0.0000
+            -0.0000         -0.0000        -12.2187
+
+     Atom 32  C   pos: (  0.608801  0.331365  0.708296)  bare sigma:         -60.50
+           -95.1582         -1.1719         -0.0000
+           -19.1548        -74.1349         -0.0000
+             0.0000         -0.0000        -12.2187
+
+     Atom 33  H   pos: (  0.452149  0.528990  0.236099)  bare sigma:          13.84
+            15.3986          1.0613         -0.0000
+             2.3298         17.6762         -0.0000
+            -0.0000          0.0000          8.4372
+
+     Atom 34  H   pos: (  0.547851  1.253016  0.708296)  bare sigma:          13.84
+            15.3986          1.0613         -0.0000
+             2.3298         17.6762         -0.0000
+             0.0000          0.0000          8.4372
+
+     Atom 35  H   pos: (  0.547851  1.419993  0.236099)  bare sigma:          13.84
+            15.3986         -1.0613          0.0000
+            -2.3298         17.6762         -0.0000
+             0.0000         -0.0000          8.4372
+
+     Atom 36  H   pos: (  0.452149  0.362013  0.708296)  bare sigma:          13.84
+            15.3986         -1.0613         -0.0000
+            -2.3298         17.6762          0.0000
+            -0.0000          0.0000          8.4372
+
+     Atom 37  C   pos: (  0.602660  0.940296  0.236099)  bare sigma:         -74.76
+           -90.8865         30.5449          0.0000
+            17.5197        -79.9367          0.0000
+            -0.0000          0.0000        -53.4518
+
+     Atom 38  C   pos: (  0.397340  0.841710  0.708296)  bare sigma:         -74.76
+           -90.8865         30.5449         -0.0000
+            17.5197        -79.9367          0.0000
+            -0.0000          0.0000        -53.4518
+
+     Atom 39  C   pos: (  0.397340  0.049293  0.236099)  bare sigma:         -74.76
+           -90.8865        -30.5449         -0.0000
+           -17.5197        -79.9367         -0.0000
+            -0.0000         -0.0000        -53.4518
+
+     Atom 40  C   pos: (  0.602660  1.732713  0.708296)  bare sigma:         -74.76
+           -90.8865        -30.5449          0.0000
+           -17.5197        -79.9367          0.0000
+            -0.0000         -0.0000        -53.4518
+
+     Atom 41  H   pos: (  0.349608  1.077396  0.236099)  bare sigma:           7.88
+             8.4421        -11.5361          0.0000
+           -11.9099         19.1011         -0.0000
+             0.0000         -0.0000         -3.8934
+
+     Atom 42  H   pos: (  0.650392  0.704610  0.708296)  bare sigma:           7.88
+             8.4421        -11.5361         -0.0000
+           -11.9099         19.1011         -0.0000
+             0.0000         -0.0000         -3.8934
+
+     Atom 43  H   pos: (  0.650392  0.186393  0.236099)  bare sigma:           7.88
+             8.4421         11.5361          0.0000
+            11.9099         19.1011          0.0000
+             0.0000          0.0000         -3.8934
+
+     Atom 44  H   pos: (  0.349608  1.595613  0.708296)  bare sigma:           7.88
+             8.4421         11.5361          0.0000
+            11.9099         19.1011          0.0000
+            -0.0000         -0.0000         -3.8934
+
+     Diamagnetic contribution in ppm:
+ 
+     Atom  1  S   pos: (  0.948142  0.719533  0.236099)  dia sigma:         -11.44
+           -11.3881         -0.0718          0.0000
+            -0.0718        -11.3690          0.0000
+             0.0000          0.0000        -11.5598
+
+     Atom  2  S   pos: (  0.051858  1.062473  0.708296)  dia sigma:         -11.44
+           -11.3881         -0.0718          0.0000
+            -0.0718        -11.3690          0.0000
+             0.0000          0.0000        -11.5598
+
+     Atom  3  S   pos: (  0.051858  1.610536  0.236099)  dia sigma:         -11.44
+           -11.3881          0.0718          0.0000
+             0.0718        -11.3690          0.0000
+             0.0000          0.0000        -11.5598
+
+     Atom  4  S   pos: (  0.948142  0.171470  0.708296)  dia sigma:         -11.44
+           -11.3881          0.0718          0.0000
+             0.0718        -11.3690          0.0000
+             0.0000          0.0000        -11.5598
+
+     Atom  5  O   pos: (  0.407542  0.933531  0.236099)  dia sigma:          17.88
+            18.4358         -0.3147          0.0000
+            -0.3147         17.6876          0.0000
+             0.0000          0.0000         17.5141
+
+     Atom  6  O   pos: (  0.592458  0.848475  0.708296)  dia sigma:          17.88
+            18.4358         -0.3147          0.0000
+            -0.3147         17.6876          0.0000
+             0.0000          0.0000         17.5141
+
+     Atom  7  O   pos: (  0.592458  0.042528  0.236099)  dia sigma:          17.88
+            18.4358          0.3147          0.0000
+             0.3147         17.6876          0.0000
+             0.0000          0.0000         17.5141
+
+     Atom  8  O   pos: (  0.407542  1.739478  0.708296)  dia sigma:          17.88
+            18.4358          0.3147          0.0000
+             0.3147         17.6876          0.0000
+             0.0000          0.0000         17.5141
+
+     Atom  9  O   pos: (  0.700638  1.093855  0.236099)  dia sigma:          17.61
+            17.1902          0.5650          0.0000
+             0.5650         17.6674          0.0000
+             0.0000          0.0000         17.9698
+
+     Atom 10  O   pos: (  0.299362  0.688151  0.708296)  dia sigma:          17.61
+            17.1902          0.5650          0.0000
+             0.5650         17.6674          0.0000
+             0.0000          0.0000         17.9698
+
+     Atom 11  O   pos: (  0.299362  0.202852  0.236099)  dia sigma:          17.61
+            17.1902         -0.5650          0.0000
+            -0.5650         17.6674          0.0000
+             0.0000          0.0000         17.9698
+
+     Atom 12  O   pos: (  0.700638  1.579154  0.708296)  dia sigma:          17.61
+            17.1902         -0.5650          0.0000
+            -0.5650         17.6674          0.0000
+             0.0000          0.0000         17.9698
+
+     Atom 13  N   pos: (  0.738396  0.405742  0.236099)  dia sigma:           9.13
+             9.2842         -0.1683          0.0000
+            -0.1683          8.7330          0.0000
+             0.0000          0.0000          9.3797
+
+     Atom 14  N   pos: (  0.261604  1.376264  0.708296)  dia sigma:           9.13
+             9.2842         -0.1683          0.0000
+            -0.1683          8.7330          0.0000
+             0.0000          0.0000          9.3797
+
+     Atom 15  N   pos: (  0.261604  1.296745  0.236099)  dia sigma:           9.13
+             9.2842          0.1683          0.0000
+             0.1683          8.7330          0.0000
+             0.0000          0.0000          9.3797
+
+     Atom 16  N   pos: (  0.738396  0.485261  0.708296)  dia sigma:           9.13
+             9.2842          0.1683          0.0000
+             0.1683          8.7330          0.0000
+             0.0000          0.0000          9.3797
+
+     Atom 17  C   pos: (  0.695180  0.743418  0.236099)  dia sigma:           4.25
+             4.3363         -0.0257          0.0000
+            -0.0257          4.1411          0.0000
+             0.0000          0.0000          4.2849
+
+     Atom 18  C   pos: (  0.304820  1.038588  0.708296)  dia sigma:           4.25
+             4.3363         -0.0257          0.0000
+            -0.0257          4.1411          0.0000
+             0.0000          0.0000          4.2849
+
+     Atom 19  C   pos: (  0.304820  1.634421  0.236099)  dia sigma:           4.25
+             4.3363          0.0257          0.0000
+             0.0257          4.1411          0.0000
+             0.0000          0.0000          4.2849
+
+     Atom 20  C   pos: (  0.695180  0.147585  0.708296)  dia sigma:           4.25
+             4.3363          0.0257          0.0000
+             0.0257          4.1411          0.0000
+             0.0000          0.0000          4.2849
+
+     Atom 21  C   pos: (  0.922771  0.467740  0.236099)  dia sigma:           4.10
+             3.9731          0.0906          0.0000
+             0.0906          4.1133          0.0000
+             0.0000          0.0000          4.2205
+
+     Atom 22  C   pos: (  0.077229  1.314266  0.708296)  dia sigma:           4.10
+             3.9731          0.0906          0.0000
+             0.0906          4.1133          0.0000
+             0.0000          0.0000          4.2205
+
+     Atom 23  C   pos: (  0.077229  1.358743  0.236099)  dia sigma:           4.10
+             3.9731         -0.0906          0.0000
+            -0.0906          4.1133          0.0000
+             0.0000          0.0000          4.2205
+
+     Atom 24  C   pos: (  0.922771  0.423263  0.708296)  dia sigma:           4.10
+             3.9731         -0.0906          0.0000
+            -0.0906          4.1133          0.0000
+             0.0000          0.0000          4.2205
+
+     Atom 25  H   pos: (  0.049707  0.368508  0.236099)  dia sigma:           1.08
+             1.0828          0.0000          0.0000
+             0.0000          1.0828          0.0000
+             0.0000          0.0000          1.0828
+
+     Atom 26  H   pos: (  0.950293  1.413498  0.708296)  dia sigma:           1.08
+             1.0828          0.0000          0.0000
+             0.0000          1.0828          0.0000
+             0.0000          0.0000          1.0828
+
+     Atom 27  H   pos: (  0.950293  1.259511  0.236099)  dia sigma:           1.08
+             1.0828         -0.0000          0.0000
+            -0.0000          1.0828          0.0000
+             0.0000          0.0000          1.0828
+
+     Atom 28  H   pos: (  0.049707  0.522495  0.708296)  dia sigma:           1.08
+             1.0828         -0.0000          0.0000
+            -0.0000          1.0828          0.0000
+             0.0000          0.0000          1.0828
+
+     Atom 29  C   pos: (  0.608801  0.559638  0.236099)  dia sigma:           4.25
+             4.1349         -0.0720          0.0000
+            -0.0720          4.2261          0.0000
+             0.0000          0.0000          4.3913
+
+     Atom 30  C   pos: (  0.391199  1.222368  0.708296)  dia sigma:           4.25
+             4.1349         -0.0720          0.0000
+            -0.0720          4.2261          0.0000
+             0.0000          0.0000          4.3913
+
+     Atom 31  C   pos: (  0.391199  1.450641  0.236099)  dia sigma:           4.25
+             4.1349          0.0720          0.0000
+             0.0720          4.2261          0.0000
+             0.0000          0.0000          4.3913
+
+     Atom 32  C   pos: (  0.608801  0.331365  0.708296)  dia sigma:           4.25
+             4.1349          0.0720          0.0000
+             0.0720          4.2261          0.0000
+             0.0000          0.0000          4.3913
+
+     Atom 33  H   pos: (  0.452149  0.528990  0.236099)  dia sigma:           1.12
+             1.1225         -0.0000          0.0000
+            -0.0000          1.1225          0.0000
+             0.0000          0.0000          1.1225
+
+     Atom 34  H   pos: (  0.547851  1.253016  0.708296)  dia sigma:           1.12
+             1.1225         -0.0000          0.0000
+            -0.0000          1.1225          0.0000
+             0.0000          0.0000          1.1225
+
+     Atom 35  H   pos: (  0.547851  1.419993  0.236099)  dia sigma:           1.12
+             1.1225          0.0000          0.0000
+             0.0000          1.1225          0.0000
+             0.0000          0.0000          1.1225
+
+     Atom 36  H   pos: (  0.452149  0.362013  0.708296)  dia sigma:           1.12
+             1.1225          0.0000          0.0000
+             0.0000          1.1225          0.0000
+             0.0000          0.0000          1.1225
+
+     Atom 37  C   pos: (  0.602660  0.940296  0.236099)  dia sigma:           3.93
+             3.9077         -0.0163          0.0000
+            -0.0163          3.7755          0.0000
+             0.0000          0.0000          4.0995
+
+     Atom 38  C   pos: (  0.397340  0.841710  0.708296)  dia sigma:           3.93
+             3.9077         -0.0163          0.0000
+            -0.0163          3.7755          0.0000
+             0.0000          0.0000          4.0995
+
+     Atom 39  C   pos: (  0.397340  0.049293  0.236099)  dia sigma:           3.93
+             3.9077          0.0163          0.0000
+             0.0163          3.7755          0.0000
+             0.0000          0.0000          4.0995
+
+     Atom 40  C   pos: (  0.602660  1.732713  0.708296)  dia sigma:           3.93
+             3.9077          0.0163          0.0000
+             0.0163          3.7755          0.0000
+             0.0000          0.0000          4.0995
+
+     Atom 41  H   pos: (  0.349608  1.077396  0.236099)  dia sigma:           0.86
+             0.8577         -0.0000          0.0000
+            -0.0000          0.8577          0.0000
+             0.0000          0.0000          0.8577
+
+     Atom 42  H   pos: (  0.650392  0.704610  0.708296)  dia sigma:           0.86
+             0.8577         -0.0000          0.0000
+            -0.0000          0.8577          0.0000
+             0.0000          0.0000          0.8577
+
+     Atom 43  H   pos: (  0.650392  0.186393  0.236099)  dia sigma:           0.86
+             0.8577          0.0000          0.0000
+             0.0000          0.8577          0.0000
+             0.0000          0.0000          0.8577
+
+     Atom 44  H   pos: (  0.349608  1.595613  0.708296)  dia sigma:           0.86
+             0.8577          0.0000          0.0000
+             0.0000          0.8577          0.0000
+             0.0000          0.0000          0.8577
+
+     Paramagnetic contribution in ppm:
+ 
+     Atom  1  S   pos: (  0.948142  0.719533  0.236099)  para sigma:        -826.77
+          -981.4121        -29.1524          0.0000
+           -79.4789       -823.0222          0.0000
+             0.0000          0.0000       -675.8853
+
+     Atom  2  S   pos: (  0.051858  1.062473  0.708296)  para sigma:        -826.77
+          -981.4121        -29.1524          0.0000
+           -79.4789       -823.0222          0.0000
+             0.0000          0.0000       -675.8853
+
+     Atom  3  S   pos: (  0.051858  1.610536  0.236099)  para sigma:        -826.77
+          -981.4121         29.1524          0.0000
+            79.4789       -823.0222          0.0000
+             0.0000          0.0000       -675.8853
+
+     Atom  4  S   pos: (  0.948142  0.171470  0.708296)  para sigma:        -826.77
+          -981.4121         29.1524          0.0000
+            79.4789       -823.0222          0.0000
+             0.0000          0.0000       -675.8853
+
+     Atom  5  O   pos: (  0.407542  0.933531  0.236099)  para sigma:        -103.60
+           -63.8695        -58.0805          0.0000
+             5.7685       -197.6470          0.0000
+             0.0000          0.0000        -49.2721
+
+     Atom  6  O   pos: (  0.592458  0.848475  0.708296)  para sigma:        -103.60
+           -63.8695        -58.0805          0.0000
+             5.7685       -197.6470          0.0000
+             0.0000          0.0000        -49.2721
+
+     Atom  7  O   pos: (  0.592458  0.042528  0.236099)  para sigma:        -103.60
+           -63.8695         58.0805          0.0000
+            -5.7685       -197.6470          0.0000
+             0.0000          0.0000        -49.2721
+
+     Atom  8  O   pos: (  0.407542  1.739478  0.708296)  para sigma:        -103.60
+           -63.8695         58.0805          0.0000
+            -5.7685       -197.6470          0.0000
+             0.0000          0.0000        -49.2721
+
+     Atom  9  O   pos: (  0.700638  1.093855  0.236099)  para sigma:        -192.20
+          -310.7680        -17.6523          0.0000
+           -25.1475       -262.2673          0.0000
+             0.0000          0.0000         -3.5711
+
+     Atom 10  O   pos: (  0.299362  0.688151  0.708296)  para sigma:        -192.20
+          -310.7680        -17.6523          0.0000
+           -25.1475       -262.2673          0.0000
+             0.0000          0.0000         -3.5711
+
+     Atom 11  O   pos: (  0.299362  0.202852  0.236099)  para sigma:        -192.20
+          -310.7680         17.6523          0.0000
+            25.1475       -262.2673          0.0000
+             0.0000          0.0000         -3.5711
+
+     Atom 12  O   pos: (  0.700638  1.579154  0.708296)  para sigma:        -192.20
+          -310.7680         17.6523          0.0000
+            25.1475       -262.2673          0.0000
+             0.0000          0.0000         -3.5711
+
+     Atom 13  N   pos: (  0.738396  0.405742  0.236099)  para sigma:        -204.00
+          -315.6183         43.1760          0.0000
+            22.4434       -243.4648          0.0000
+             0.0000          0.0000        -52.9078
+
+     Atom 14  N   pos: (  0.261604  1.376264  0.708296)  para sigma:        -204.00
+          -315.6183         43.1760          0.0000
+            22.4434       -243.4648          0.0000
+             0.0000          0.0000        -52.9078
+
+     Atom 15  N   pos: (  0.261604  1.296745  0.236099)  para sigma:        -204.00
+          -315.6183        -43.1760          0.0000
+           -22.4434       -243.4648          0.0000
+             0.0000          0.0000        -52.9078
+
+     Atom 16  N   pos: (  0.738396  0.485261  0.708296)  para sigma:        -204.00
+          -315.6183        -43.1760          0.0000
+           -22.4434       -243.4648          0.0000
+             0.0000          0.0000        -52.9078
+
+     Atom 17  C   pos: (  0.695180  0.743418  0.236099)  para sigma:        -113.76
+          -125.6484         11.4662          0.0000
+            20.7249       -130.5807          0.0000
+             0.0000          0.0000        -85.0615
+
+     Atom 18  C   pos: (  0.304820  1.038588  0.708296)  para sigma:        -113.76
+          -125.6484         11.4662          0.0000
+            20.7249       -130.5807          0.0000
+             0.0000          0.0000        -85.0615
+
+     Atom 19  C   pos: (  0.304820  1.634421  0.236099)  para sigma:        -113.76
+          -125.6484        -11.4662          0.0000
+           -20.7249       -130.5807          0.0000
+             0.0000          0.0000        -85.0615
+
+     Atom 20  C   pos: (  0.695180  0.147585  0.708296)  para sigma:        -113.76
+          -125.6484        -11.4662          0.0000
+           -20.7249       -130.5807          0.0000
+             0.0000          0.0000        -85.0615
+
+     Atom 21  C   pos: (  0.922771  0.467740  0.236099)  para sigma:        -124.51
+          -160.6892         18.6993          0.0000
+             6.7387       -137.0585          0.0000
+             0.0000          0.0000        -75.7737
+
+     Atom 22  C   pos: (  0.077229  1.314266  0.708296)  para sigma:        -124.51
+          -160.6892         18.6993          0.0000
+             6.7387       -137.0585          0.0000
+             0.0000          0.0000        -75.7737
+
+     Atom 23  C   pos: (  0.077229  1.358743  0.236099)  para sigma:        -124.51
+          -160.6892        -18.6993          0.0000
+            -6.7387       -137.0585          0.0000
+             0.0000          0.0000        -75.7737
+
+     Atom 24  C   pos: (  0.922771  0.423263  0.708296)  para sigma:        -124.51
+          -160.6892        -18.6993          0.0000
+            -6.7387       -137.0585          0.0000
+             0.0000          0.0000        -75.7737
+
+     Atom 25  H   pos: (  0.049707  0.368508  0.236099)  para sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 26  H   pos: (  0.950293  1.413498  0.708296)  para sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 27  H   pos: (  0.950293  1.259511  0.236099)  para sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 28  H   pos: (  0.049707  0.522495  0.708296)  para sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 29  C   pos: (  0.608801  0.559638  0.236099)  para sigma:        -115.84
+          -146.7223          4.4045          0.0000
+            24.2758       -126.6387          0.0000
+             0.0000          0.0000        -74.1714
+
+     Atom 30  C   pos: (  0.391199  1.222368  0.708296)  para sigma:        -115.84
+          -146.7223          4.4045          0.0000
+            24.2758       -126.6387          0.0000
+             0.0000          0.0000        -74.1714
+
+     Atom 31  C   pos: (  0.391199  1.450641  0.236099)  para sigma:        -115.84
+          -146.7223         -4.4045          0.0000
+           -24.2758       -126.6387          0.0000
+             0.0000          0.0000        -74.1714
+
+     Atom 32  C   pos: (  0.608801  0.331365  0.708296)  para sigma:        -115.84
+          -146.7223         -4.4045          0.0000
+           -24.2758       -126.6387          0.0000
+             0.0000          0.0000        -74.1714
+
+     Atom 33  H   pos: (  0.452149  0.528990  0.236099)  para sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 34  H   pos: (  0.547851  1.253016  0.708296)  para sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 35  H   pos: (  0.547851  1.419993  0.236099)  para sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 36  H   pos: (  0.452149  0.362013  0.708296)  para sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 37  C   pos: (  0.602660  0.940296  0.236099)  para sigma:        -118.15
+          -145.1965         28.7066          0.0000
+            16.3961       -126.3451          0.0000
+             0.0000          0.0000        -82.8938
+
+     Atom 38  C   pos: (  0.397340  0.841710  0.708296)  para sigma:        -118.15
+          -145.1965         28.7066          0.0000
+            16.3961       -126.3451          0.0000
+             0.0000          0.0000        -82.8938
+
+     Atom 39  C   pos: (  0.397340  0.049293  0.236099)  para sigma:        -118.15
+          -145.1965        -28.7066          0.0000
+           -16.3961       -126.3451          0.0000
+             0.0000          0.0000        -82.8938
+
+     Atom 40  C   pos: (  0.602660  1.732713  0.708296)  para sigma:        -118.15
+          -145.1965        -28.7066          0.0000
+           -16.3961       -126.3451          0.0000
+             0.0000          0.0000        -82.8938
+
+     Atom 41  H   pos: (  0.349608  1.077396  0.236099)  para sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 42  H   pos: (  0.650392  0.704610  0.708296)  para sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 43  H   pos: (  0.650392  0.186393  0.236099)  para sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 44  H   pos: (  0.349608  1.595613  0.708296)  para sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Paramagnetic US occ-occ contribution in ppm:
+ 
+     Atom  1  S   pos: (  0.948142  0.719533  0.236099)  para_oo sigma:          -2.72
+            -4.0802          2.7402          0.0000
+             1.0072         -3.4527          0.0000
+             0.0000          0.0000         -0.6193
+
+     Atom  2  S   pos: (  0.051858  1.062473  0.708296)  para_oo sigma:          -2.72
+            -4.0802          2.7402          0.0000
+             1.0072         -3.4527          0.0000
+             0.0000          0.0000         -0.6193
+
+     Atom  3  S   pos: (  0.051858  1.610536  0.236099)  para_oo sigma:          -2.72
+            -4.0802         -2.7402          0.0000
+            -1.0072         -3.4527          0.0000
+             0.0000          0.0000         -0.6193
+
+     Atom  4  S   pos: (  0.948142  0.171470  0.708296)  para_oo sigma:          -2.72
+            -4.0802         -2.7402          0.0000
+            -1.0072         -3.4527          0.0000
+             0.0000          0.0000         -0.6193
+
+     Atom  5  O   pos: (  0.407542  0.933531  0.236099)  para_oo sigma:          -1.38
+            -1.6672          0.9179          0.0000
+             2.5199         -2.9829          0.0000
+             0.0000          0.0000          0.5121
+
+     Atom  6  O   pos: (  0.592458  0.848475  0.708296)  para_oo sigma:          -1.38
+            -1.6672          0.9179          0.0000
+             2.5199         -2.9829          0.0000
+             0.0000          0.0000          0.5121
+
+     Atom  7  O   pos: (  0.592458  0.042528  0.236099)  para_oo sigma:          -1.38
+            -1.6672         -0.9179          0.0000
+            -2.5199         -2.9829          0.0000
+             0.0000          0.0000          0.5121
+
+     Atom  8  O   pos: (  0.407542  1.739478  0.708296)  para_oo sigma:          -1.38
+            -1.6672         -0.9179          0.0000
+            -2.5199         -2.9829          0.0000
+             0.0000          0.0000          0.5121
+
+     Atom  9  O   pos: (  0.700638  1.093855  0.236099)  para_oo sigma:          -2.00
+            -1.2217          2.9105          0.0000
+            -0.2622         -4.4025          0.0000
+             0.0000          0.0000         -0.3724
+
+     Atom 10  O   pos: (  0.299362  0.688151  0.708296)  para_oo sigma:          -2.00
+            -1.2217          2.9105          0.0000
+            -0.2622         -4.4025          0.0000
+             0.0000          0.0000         -0.3724
+
+     Atom 11  O   pos: (  0.299362  0.202852  0.236099)  para_oo sigma:          -2.00
+            -1.2217         -2.9105          0.0000
+             0.2622         -4.4025          0.0000
+             0.0000          0.0000         -0.3724
+
+     Atom 12  O   pos: (  0.700638  1.579154  0.708296)  para_oo sigma:          -2.00
+            -1.2217         -2.9105          0.0000
+             0.2622         -4.4025          0.0000
+             0.0000          0.0000         -0.3724
+
+     Atom 13  N   pos: (  0.738396  0.405742  0.236099)  para_oo sigma:          -1.08
+            -1.1454         -0.1619          0.0000
+             0.3632         -1.5213          0.0000
+             0.0000          0.0000         -0.5881
+
+     Atom 14  N   pos: (  0.261604  1.376264  0.708296)  para_oo sigma:          -1.08
+            -1.1454         -0.1619          0.0000
+             0.3632         -1.5213          0.0000
+             0.0000          0.0000         -0.5881
+
+     Atom 15  N   pos: (  0.261604  1.296745  0.236099)  para_oo sigma:          -1.08
+            -1.1454          0.1619          0.0000
+            -0.3632         -1.5213          0.0000
+             0.0000          0.0000         -0.5881
+
+     Atom 16  N   pos: (  0.738396  0.485261  0.708296)  para_oo sigma:          -1.08
+            -1.1454          0.1619          0.0000
+            -0.3632         -1.5213          0.0000
+             0.0000          0.0000         -0.5881
+
+     Atom 17  C   pos: (  0.695180  0.743418  0.236099)  para_oo sigma:          -1.49
+            -1.1894         -0.1995          0.0000
+            -0.1182         -2.1573          0.0000
+             0.0000          0.0000         -1.1094
+
+     Atom 18  C   pos: (  0.304820  1.038588  0.708296)  para_oo sigma:          -1.49
+            -1.1894         -0.1995          0.0000
+            -0.1182         -2.1573          0.0000
+             0.0000          0.0000         -1.1094
+
+     Atom 19  C   pos: (  0.304820  1.634421  0.236099)  para_oo sigma:          -1.49
+            -1.1894          0.1995          0.0000
+             0.1182         -2.1573          0.0000
+             0.0000          0.0000         -1.1094
+
+     Atom 20  C   pos: (  0.695180  0.147585  0.708296)  para_oo sigma:          -1.49
+            -1.1894          0.1995          0.0000
+             0.1182         -2.1573          0.0000
+             0.0000          0.0000         -1.1094
+
+     Atom 21  C   pos: (  0.922771  0.467740  0.236099)  para_oo sigma:          -2.00
+            -2.2877          0.8504          0.0000
+             1.0231         -2.2016          0.0000
+             0.0000          0.0000         -1.5082
+
+     Atom 22  C   pos: (  0.077229  1.314266  0.708296)  para_oo sigma:          -2.00
+            -2.2877          0.8504          0.0000
+             1.0231         -2.2016          0.0000
+             0.0000          0.0000         -1.5082
+
+     Atom 23  C   pos: (  0.077229  1.358743  0.236099)  para_oo sigma:          -2.00
+            -2.2877         -0.8504          0.0000
+            -1.0231         -2.2016          0.0000
+             0.0000          0.0000         -1.5082
+
+     Atom 24  C   pos: (  0.922771  0.423263  0.708296)  para_oo sigma:          -2.00
+            -2.2877         -0.8504          0.0000
+            -1.0231         -2.2016          0.0000
+             0.0000          0.0000         -1.5082
+
+     Atom 25  H   pos: (  0.049707  0.368508  0.236099)  para_oo sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 26  H   pos: (  0.950293  1.413498  0.708296)  para_oo sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 27  H   pos: (  0.950293  1.259511  0.236099)  para_oo sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 28  H   pos: (  0.049707  0.522495  0.708296)  para_oo sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 29  C   pos: (  0.608801  0.559638  0.236099)  para_oo sigma:          -0.95
+            -1.2669         -0.5772          0.0000
+            -0.7574         -1.0734          0.0000
+             0.0000          0.0000         -0.4977
+
+     Atom 30  C   pos: (  0.391199  1.222368  0.708296)  para_oo sigma:          -0.95
+            -1.2669         -0.5772          0.0000
+            -0.7574         -1.0734          0.0000
+             0.0000          0.0000         -0.4977
+
+     Atom 31  C   pos: (  0.391199  1.450641  0.236099)  para_oo sigma:          -0.95
+            -1.2669          0.5772          0.0000
+             0.7574         -1.0734          0.0000
+             0.0000          0.0000         -0.4977
+
+     Atom 32  C   pos: (  0.608801  0.331365  0.708296)  para_oo sigma:          -0.95
+            -1.2669          0.5772          0.0000
+             0.7574         -1.0734          0.0000
+             0.0000          0.0000         -0.4977
+
+     Atom 33  H   pos: (  0.452149  0.528990  0.236099)  para_oo sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 34  H   pos: (  0.547851  1.253016  0.708296)  para_oo sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 35  H   pos: (  0.547851  1.419993  0.236099)  para_oo sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 36  H   pos: (  0.452149  0.362013  0.708296)  para_oo sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 37  C   pos: (  0.602660  0.940296  0.236099)  para_oo sigma:          -1.60
+            -1.7458          0.9533          0.0000
+             0.9792         -1.9094          0.0000
+             0.0000          0.0000         -1.1368
+
+     Atom 38  C   pos: (  0.397340  0.841710  0.708296)  para_oo sigma:          -1.60
+            -1.7458          0.9533          0.0000
+             0.9792         -1.9094          0.0000
+             0.0000          0.0000         -1.1368
+
+     Atom 39  C   pos: (  0.397340  0.049293  0.236099)  para_oo sigma:          -1.60
+            -1.7458         -0.9533          0.0000
+            -0.9792         -1.9094          0.0000
+             0.0000          0.0000         -1.1368
+
+     Atom 40  C   pos: (  0.602660  1.732713  0.708296)  para_oo sigma:          -1.60
+            -1.7458         -0.9533          0.0000
+            -0.9792         -1.9094          0.0000
+             0.0000          0.0000         -1.1368
+
+     Atom 41  H   pos: (  0.349608  1.077396  0.236099)  para_oo sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 42  H   pos: (  0.650392  0.704610  0.708296)  para_oo sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 43  H   pos: (  0.650392  0.186393  0.236099)  para_oo sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 44  H   pos: (  0.349608  1.595613  0.708296)  para_oo sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Paramagnetic US L_R Q_R contribution in ppm:
+ 
+     Atom  1  S   pos: (  0.948142  0.719533  0.236099)  para_lq sigma:          -0.88
+           -12.6778         13.6646          0.0000
+            14.6242          4.6816          0.0000
+             0.0000          0.0000          5.3575
+
+     Atom  2  S   pos: (  0.051858  1.062473  0.708296)  para_lq sigma:          -0.88
+           -12.6778         13.6646          0.0000
+            14.6242          4.6816          0.0000
+             0.0000          0.0000          5.3575
+
+     Atom  3  S   pos: (  0.051858  1.610536  0.236099)  para_lq sigma:          -0.88
+           -12.6778        -13.6646          0.0000
+           -14.6242          4.6816          0.0000
+             0.0000          0.0000          5.3575
+
+     Atom  4  S   pos: (  0.948142  0.171470  0.708296)  para_lq sigma:          -0.88
+           -12.6778        -13.6646          0.0000
+           -14.6242          4.6816          0.0000
+             0.0000          0.0000          5.3575
+
+     Atom  5  O   pos: (  0.407542  0.933531  0.236099)  para_lq sigma:        -143.76
+          -145.4481          0.4785          0.0000
+            13.1820       -159.4313          0.0000
+             0.0000          0.0000       -126.4157
+
+     Atom  6  O   pos: (  0.592458  0.848475  0.708296)  para_lq sigma:        -143.76
+          -145.4481          0.4785          0.0000
+            13.1820       -159.4313          0.0000
+             0.0000          0.0000       -126.4157
+
+     Atom  7  O   pos: (  0.592458  0.042528  0.236099)  para_lq sigma:        -143.76
+          -145.4481         -0.4785          0.0000
+           -13.1820       -159.4313          0.0000
+             0.0000          0.0000       -126.4157
+
+     Atom  8  O   pos: (  0.407542  1.739478  0.708296)  para_lq sigma:        -143.76
+          -145.4481         -0.4785          0.0000
+           -13.1820       -159.4313          0.0000
+             0.0000          0.0000       -126.4157
+
+     Atom  9  O   pos: (  0.700638  1.093855  0.236099)  para_lq sigma:        -155.53
+          -153.5265         -2.6017          0.0000
+           -15.6570       -178.1576          0.0000
+             0.0000          0.0000       -134.9014
+
+     Atom 10  O   pos: (  0.299362  0.688151  0.708296)  para_lq sigma:        -155.53
+          -153.5265         -2.6017          0.0000
+           -15.6570       -178.1576          0.0000
+             0.0000          0.0000       -134.9014
+
+     Atom 11  O   pos: (  0.299362  0.202852  0.236099)  para_lq sigma:        -155.53
+          -153.5265          2.6017          0.0000
+            15.6570       -178.1576          0.0000
+             0.0000          0.0000       -134.9014
+
+     Atom 12  O   pos: (  0.700638  1.579154  0.708296)  para_lq sigma:        -155.53
+          -153.5265          2.6017          0.0000
+            15.6570       -178.1576          0.0000
+             0.0000          0.0000       -134.9014
+
+     Atom 13  N   pos: (  0.738396  0.405742  0.236099)  para_lq sigma:         -68.29
+           -76.8633          2.6805          0.0000
+             4.0681        -67.7256          0.0000
+             0.0000          0.0000        -60.2686
+
+     Atom 14  N   pos: (  0.261604  1.376264  0.708296)  para_lq sigma:         -68.29
+           -76.8633          2.6805          0.0000
+             4.0681        -67.7256          0.0000
+             0.0000          0.0000        -60.2686
+
+     Atom 15  N   pos: (  0.261604  1.296745  0.236099)  para_lq sigma:         -68.29
+           -76.8633         -2.6805          0.0000
+            -4.0681        -67.7256          0.0000
+             0.0000          0.0000        -60.2686
+
+     Atom 16  N   pos: (  0.738396  0.485261  0.708296)  para_lq sigma:         -68.29
+           -76.8633         -2.6805          0.0000
+            -4.0681        -67.7256          0.0000
+             0.0000          0.0000        -60.2686
+
+     Atom 17  C   pos: (  0.695180  0.743418  0.236099)  para_lq sigma:         -12.75
+           -15.9498          1.3541          0.0000
+             0.6754        -10.7341          0.0000
+             0.0000          0.0000        -11.5638
+
+     Atom 18  C   pos: (  0.304820  1.038588  0.708296)  para_lq sigma:         -12.75
+           -15.9498          1.3541          0.0000
+             0.6754        -10.7341          0.0000
+             0.0000          0.0000        -11.5638
+
+     Atom 19  C   pos: (  0.304820  1.634421  0.236099)  para_lq sigma:         -12.75
+           -15.9498         -1.3541          0.0000
+            -0.6754        -10.7341          0.0000
+             0.0000          0.0000        -11.5638
+
+     Atom 20  C   pos: (  0.695180  0.147585  0.708296)  para_lq sigma:         -12.75
+           -15.9498         -1.3541          0.0000
+            -0.6754        -10.7341          0.0000
+             0.0000          0.0000        -11.5638
+
+     Atom 21  C   pos: (  0.922771  0.467740  0.236099)  para_lq sigma:         -13.24
+           -10.0966          1.1524          0.0000
+             1.0222        -18.2353          0.0000
+             0.0000          0.0000        -11.3852
+
+     Atom 22  C   pos: (  0.077229  1.314266  0.708296)  para_lq sigma:         -13.24
+           -10.0966          1.1524          0.0000
+             1.0222        -18.2353          0.0000
+             0.0000          0.0000        -11.3852
+
+     Atom 23  C   pos: (  0.077229  1.358743  0.236099)  para_lq sigma:         -13.24
+           -10.0966         -1.1524          0.0000
+            -1.0222        -18.2353          0.0000
+             0.0000          0.0000        -11.3852
+
+     Atom 24  C   pos: (  0.922771  0.423263  0.708296)  para_lq sigma:         -13.24
+           -10.0966         -1.1524          0.0000
+            -1.0222        -18.2353          0.0000
+             0.0000          0.0000        -11.3852
+
+     Atom 25  H   pos: (  0.049707  0.368508  0.236099)  para_lq sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 26  H   pos: (  0.950293  1.413498  0.708296)  para_lq sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 27  H   pos: (  0.950293  1.259511  0.236099)  para_lq sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 28  H   pos: (  0.049707  0.522495  0.708296)  para_lq sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 29  C   pos: (  0.608801  0.559638  0.236099)  para_lq sigma:         -13.92
+           -16.2987         -1.6555          0.0000
+            -0.2079        -14.5674          0.0000
+             0.0000          0.0000        -10.8882
+
+     Atom 30  C   pos: (  0.391199  1.222368  0.708296)  para_lq sigma:         -13.92
+           -16.2987         -1.6555         -0.0000
+            -0.2079        -14.5674          0.0000
+             0.0000          0.0000        -10.8882
+
+     Atom 31  C   pos: (  0.391199  1.450641  0.236099)  para_lq sigma:         -13.92
+           -16.2987          1.6555          0.0000
+             0.2079        -14.5674          0.0000
+             0.0000          0.0000        -10.8882
+
+     Atom 32  C   pos: (  0.608801  0.331365  0.708296)  para_lq sigma:         -13.92
+           -16.2987          1.6555         -0.0000
+             0.2079        -14.5674          0.0000
+             0.0000          0.0000        -10.8882
+
+     Atom 33  H   pos: (  0.452149  0.528990  0.236099)  para_lq sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 34  H   pos: (  0.547851  1.253016  0.708296)  para_lq sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 35  H   pos: (  0.547851  1.419993  0.236099)  para_lq sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 36  H   pos: (  0.452149  0.362013  0.708296)  para_lq sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 37  C   pos: (  0.602660  0.940296  0.236099)  para_lq sigma:         -16.56
+           -18.9770          5.7390          0.0000
+             4.3747        -17.4958          0.0000
+             0.0000          0.0000        -13.1983
+
+     Atom 38  C   pos: (  0.397340  0.841710  0.708296)  para_lq sigma:         -16.56
+           -18.9770          5.7390          0.0000
+             4.3747        -17.4958          0.0000
+             0.0000          0.0000        -13.1983
+
+     Atom 39  C   pos: (  0.397340  0.049293  0.236099)  para_lq sigma:         -16.56
+           -18.9770         -5.7390          0.0000
+            -4.3747        -17.4958          0.0000
+             0.0000          0.0000        -13.1983
+
+     Atom 40  C   pos: (  0.602660  1.732713  0.708296)  para_lq sigma:         -16.56
+           -18.9770         -5.7390          0.0000
+            -4.3747        -17.4958          0.0000
+             0.0000          0.0000        -13.1983
+
+     Atom 41  H   pos: (  0.349608  1.077396  0.236099)  para_lq sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 42  H   pos: (  0.650392  0.704610  0.708296)  para_lq sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 43  H   pos: (  0.650392  0.186393  0.236099)  para_lq sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+     Atom 44  H   pos: (  0.349608  1.595613  0.708296)  para_lq sigma:           0.00
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+             0.0000          0.0000          0.0000
+
+ 
+     Total NMR chemical shifts in ppm: ---------------------------------------
+     (adopting the Simpson convention for anisotropy and asymmetry)-----------
+ 
+     Atom  1  S   pos: (  0.948142  0.719533  0.236099)  Total sigma:         151.08
+           -32.1204        -15.1965         -0.0000
+           -71.1744        158.8395          0.0000
+            -0.0000         -0.0000        326.5130
+
+     S    1    anisotropy:   -288.76    eta:   -0.8226
+     S    1    sigma_11=    168.15    axis=( -0.210789  0.977532  0.000000)
+     S    1    sigma_22=    326.51    axis=(  0.000000  0.000000  1.000000)
+     S    1    sigma_33=    -41.43    axis=(  0.977532  0.210789  0.000000)
+ 
+     Atom  2  S   pos: (  0.051858  1.062473  0.708296)  Total sigma:         151.08
+           -32.1204        -15.1965         -0.0000
+           -71.1744        158.8395         -0.0000
+             0.0000          0.0000        326.5130
+
+     S    2    anisotropy:   -288.76    eta:   -0.8226
+     S    2    sigma_11=    168.15    axis=(  0.210789 -0.977532  0.000000)
+     S    2    sigma_22=    326.51    axis=(  0.000000  0.000000  1.000000)
+     S    2    sigma_33=    -41.43    axis=(  0.977532  0.210789 -0.000000)
+ 
+     Atom  3  S   pos: (  0.051858  1.610536  0.236099)  Total sigma:         151.08
+           -32.1204         15.1965          0.0000
+            71.1744        158.8395         -0.0000
+             0.0000         -0.0000        326.5130
+
+     S    3    anisotropy:   -288.76    eta:   -0.8226
+     S    3    sigma_11=    168.15    axis=( -0.210789 -0.977532  0.000000)
+     S    3    sigma_22=    326.51    axis=(  0.000000  0.000000  1.000000)
+     S    3    sigma_33=    -41.43    axis=( -0.977532  0.210789  0.000000)
+ 
+     Atom  4  S   pos: (  0.948142  0.171470  0.708296)  Total sigma:         151.08
+           -32.1204         15.1965          0.0000
+            71.1744        158.8395         -0.0000
+            -0.0000          0.0000        326.5130
+
+     S    4    anisotropy:   -288.76    eta:   -0.8226
+     S    4    sigma_11=    168.15    axis=( -0.210789 -0.977532  0.000000)
+     S    4    sigma_22=    326.51    axis=(  0.000000  0.000000  1.000000)
+     S    4    sigma_33=    -41.43    axis=( -0.977532  0.210789  0.000000)
+ 
+     Atom  5  O   pos: (  0.407542  0.933531  0.236099)  Total sigma:          66.06
+           120.5030        -79.6464          0.0000
+            28.8798        -89.8719          0.0000
+            -0.0000          0.0000        167.5531
+
+     O    5    anisotropy:   -238.43    eta:   -0.2770
+     O    5    sigma_11=    123.52    axis=( -0.993000  0.118118  0.000000)
+     O    5    sigma_22=    167.55    axis=(  0.000000  0.000000  1.000000)
+     O    5    sigma_33=    -92.89    axis=(  0.118118  0.993000  0.000000)
+ 
+     Atom  6  O   pos: (  0.592458  0.848475  0.708296)  Total sigma:          66.06
+           120.5030        -79.6464          0.0000
+            28.8798        -89.8719         -0.0000
+             0.0000          0.0000        167.5531
+
+     O    6    anisotropy:   -238.43    eta:   -0.2770
+     O    6    sigma_11=    123.52    axis=(  0.993000 -0.118118  0.000000)
+     O    6    sigma_22=    167.55    axis=(  0.000000  0.000000  1.000000)
+     O    6    sigma_33=    -92.89    axis=( -0.118118 -0.993000  0.000000)
+ 
+     Atom  7  O   pos: (  0.592458  0.042528  0.236099)  Total sigma:          66.06
+           120.5030         79.6464          0.0000
+           -28.8798        -89.8719          0.0000
+             0.0000         -0.0000        167.5531
+
+     O    7    anisotropy:   -238.43    eta:   -0.2770
+     O    7    sigma_11=    123.52    axis=( -0.993000 -0.118118  0.000000)
+     O    7    sigma_22=    167.55    axis=(  0.000000  0.000000  1.000000)
+     O    7    sigma_33=    -92.89    axis=( -0.118118  0.993000  0.000000)
+ 
+     Atom  8  O   pos: (  0.407542  1.739478  0.708296)  Total sigma:          66.06
+           120.5030         79.6464         -0.0000
+           -28.8798        -89.8719         -0.0000
+            -0.0000          0.0000        167.5531
+
+     O    8    anisotropy:   -238.43    eta:   -0.2770
+     O    8    sigma_11=    123.52    axis=( -0.993000 -0.118118  0.000000)
+     O    8    sigma_22=    167.55    axis=(  0.000000  0.000000  1.000000)
+     O    8    sigma_33=    -92.89    axis=( -0.118118  0.993000  0.000000)
+ 
+     Atom  9  O   pos: (  0.700638  1.093855  0.236099)  Total sigma:         -77.88
+          -240.3173        -22.1203          0.0000
+           -56.1784       -210.8668          0.0000
+             0.0000         -0.0000        217.5350
+
+     O    9    anisotropy:    443.13    eta:   -0.2832
+     O    9    sigma_11=   -183.76    axis=( -0.569188  0.822208  0.000000)
+     O    9    sigma_22=   -267.42    axis=( -0.822208 -0.569188  0.000000)
+     O    9    sigma_33=    217.54    axis=(  0.000000  0.000000  1.000000)
+ 
+     Atom 10  O   pos: (  0.299362  0.688151  0.708296)  Total sigma:         -77.88
+          -240.3173        -22.1203         -0.0000
+           -56.1784       -210.8668         -0.0000
+            -0.0000         -0.0000        217.5350
+
+     O   10    anisotropy:    443.13    eta:   -0.2832
+     O   10    sigma_11=   -183.76    axis=( -0.569188  0.822208  0.000000)
+     O   10    sigma_22=   -267.42    axis=( -0.822208 -0.569188  0.000000)
+     O   10    sigma_33=    217.54    axis=(  0.000000  0.000000  1.000000)
+ 
+     Atom 11  O   pos: (  0.299362  0.202852  0.236099)  Total sigma:         -77.88
+          -240.3173         22.1203         -0.0000
+            56.1784       -210.8668          0.0000
+             0.0000          0.0000        217.5350
+
+     O   11    anisotropy:    443.13    eta:   -0.2832
+     O   11    sigma_11=   -183.76    axis=( -0.569188 -0.822208  0.000000)
+     O   11    sigma_22=   -267.42    axis=(  0.822208 -0.569188  0.000000)
+     O   11    sigma_33=    217.54    axis=(  0.000000  0.000000  1.000000)
+ 
+     Atom 12  O   pos: (  0.700638  1.579154  0.708296)  Total sigma:         -77.88
+          -240.3173         22.1203          0.0000
+            56.1784       -210.8668         -0.0000
+             0.0000         -0.0000        217.5350
+
+     O   12    anisotropy:    443.13    eta:   -0.2832
+     O   12    sigma_11=   -183.76    axis=( -0.569188 -0.822208  0.000000)
+     O   12    sigma_22=   -267.42    axis=(  0.822208 -0.569188  0.000000)
+     O   12    sigma_33=    217.54    axis=(  0.000000  0.000000  1.000000)
+ 
+     Atom 13  N   pos: (  0.738396  0.405742  0.236099)  Total sigma:         -72.26
+          -263.6703         69.5002         -0.0000
+            41.8360       -136.6999         -0.0000
+            -0.0000         -0.0000        183.5952
+
+     N   13    anisotropy:    383.78    eta:   -0.6600
+     N   13    sigma_11=   -115.75    axis=(  0.352221  0.935917  0.000000)
+     N   13    sigma_22=   -284.62    axis=( -0.935917  0.352221  0.000000)
+     N   13    sigma_33=    183.60    axis=(  0.000000  0.000000  1.000000)
+ 
+     Atom 14  N   pos: (  0.261604  1.376264  0.708296)  Total sigma:         -72.26
+          -263.6703         69.5002          0.0000
+            41.8360       -136.6999          0.0000
+            -0.0000         -0.0000        183.5952
+
+     N   14    anisotropy:    383.78    eta:   -0.6600
+     N   14    sigma_11=   -115.75    axis=(  0.352221  0.935917  0.000000)
+     N   14    sigma_22=   -284.62    axis=( -0.935917  0.352221  0.000000)
+     N   14    sigma_33=    183.60    axis=(  0.000000  0.000000  1.000000)
+ 
+     Atom 15  N   pos: (  0.261604  1.296745  0.236099)  Total sigma:         -72.26
+          -263.6703        -69.5002          0.0000
+           -41.8360       -136.6999          0.0000
+            -0.0000          0.0000        183.5952
+
+     N   15    anisotropy:    383.78    eta:   -0.6600
+     N   15    sigma_11=   -115.75    axis=( -0.352221  0.935917  0.000000)
+     N   15    sigma_22=   -284.62    axis=( -0.935917 -0.352221  0.000000)
+     N   15    sigma_33=    183.60    axis=(  0.000000  0.000000  1.000000)
+ 
+     Atom 16  N   pos: (  0.738396  0.485261  0.708296)  Total sigma:         -72.26
+          -263.6703        -69.5002         -0.0000
+           -41.8360       -136.6999          0.0000
+             0.0000         -0.0000        183.5952
+
+     N   16    anisotropy:    383.78    eta:   -0.6600
+     N   16    sigma_11=   -115.75    axis=( -0.352221  0.935917  0.000000)
+     N   16    sigma_22=   -284.62    axis=( -0.935917 -0.352221  0.000000)
+     N   16    sigma_33=    183.60    axis=(  0.000000  0.000000  1.000000)
+ 
+     Atom 17  C   pos: (  0.695180  0.743418  0.236099)  Total sigma:          27.69
+            -2.5766         20.0170         -0.0000
+            36.0627         -5.2755         -0.0000
+            -0.0000         -0.0000         90.9074
+
+     C   17    anisotropy:     94.83    eta:   -0.8881
+     C   17    sigma_11=     24.15    axis=( -0.723903 -0.689902 -0.000000)
+     C   17    sigma_22=    -32.00    axis=(  0.689902 -0.723903  0.000000)
+     C   17    sigma_33=     90.91    axis=( -0.000000 -0.000000  1.000000)
+ 
+     Atom 18  C   pos: (  0.304820  1.038588  0.708296)  Total sigma:          27.69
+            -2.5766         20.0170          0.0000
+            36.0627         -5.2755         -0.0000
+            -0.0000          0.0000         90.9074
+
+     C   18    anisotropy:     94.83    eta:   -0.8881
+     C   18    sigma_11=     24.15    axis=(  0.723903  0.689902  0.000000)
+     C   18    sigma_22=    -32.00    axis=( -0.689902  0.723903  0.000000)
+     C   18    sigma_33=     90.91    axis=(  0.000000  0.000000  1.000000)
+ 
+     Atom 19  C   pos: (  0.304820  1.634421  0.236099)  Total sigma:          27.69
+            -2.5766        -20.0170          0.0000
+           -36.0627         -5.2755         -0.0000
+            -0.0000         -0.0000         90.9074
+
+     C   19    anisotropy:     94.83    eta:   -0.8881
+     C   19    sigma_11=     24.15    axis=( -0.723903  0.689902  0.000000)
+     C   19    sigma_22=    -32.00    axis=( -0.689902 -0.723903 -0.000000)
+     C   19    sigma_33=     90.91    axis=(  0.000000 -0.000000  1.000000)
+ 
+     Atom 20  C   pos: (  0.695180  0.147585  0.708296)  Total sigma:          27.69
+            -2.5766        -20.0170          0.0000
+           -36.0627         -5.2755         -0.0000
+            -0.0000          0.0000         90.9074
+
+     C   20    anisotropy:     94.83    eta:   -0.8881
+     C   20    sigma_11=     24.15    axis=( -0.723903  0.689902  0.000000)
+     C   20    sigma_22=    -32.00    axis=( -0.689902 -0.723903  0.000000)
+     C   20    sigma_33=     90.91    axis=(  0.000000  0.000000  1.000000)
+ 
+     Atom 21  C   pos: (  0.922771  0.467740  0.236099)  Total sigma:           4.09
+           -68.8467         38.7663          0.0000
+            16.5795        -29.5940         -0.0000
+             0.0000         -0.0000        110.7246
+
+     C   21    anisotropy:    159.94    eta:   -0.6363
+     C   21    sigma_11=    -15.29    axis=( -0.459074 -0.888398  0.000000)
+     C   21    sigma_22=    -83.15    axis=(  0.888398 -0.459074  0.000000)
+     C   21    sigma_33=    110.72    axis=(  0.000000  0.000000  1.000000)
+ 
+     Atom 22  C   pos: (  0.077229  1.314266  0.708296)  Total sigma:           4.09
+           -68.8467         38.7663         -0.0000
+            16.5795        -29.5940         -0.0000
+             0.0000         -0.0000        110.7246
+
+     C   22    anisotropy:    159.94    eta:   -0.6363
+     C   22    sigma_11=    -15.29    axis=(  0.459074  0.888398  0.000000)
+     C   22    sigma_22=    -83.15    axis=( -0.888398  0.459074  0.000000)
+     C   22    sigma_33=    110.72    axis=(  0.000000 -0.000000  1.000000)
+ 
+     Atom 23  C   pos: (  0.077229  1.358743  0.236099)  Total sigma:           4.09
+           -68.8467        -38.7663          0.0000
+           -16.5795        -29.5940          0.0000
+             0.0000         -0.0000        110.7246
+
+     C   23    anisotropy:    159.94    eta:   -0.6363
+     C   23    sigma_11=    -15.29    axis=( -0.459074  0.888398  0.000000)
+     C   23    sigma_22=    -83.15    axis=( -0.888398 -0.459074  0.000000)
+     C   23    sigma_33=    110.72    axis=(  0.000000  0.000000  1.000000)
+ 
+     Atom 24  C   pos: (  0.922771  0.423263  0.708296)  Total sigma:           4.09
+           -68.8467        -38.7663          0.0000
+           -16.5795        -29.5940         -0.0000
+            -0.0000         -0.0000        110.7246
+
+     C   24    anisotropy:    159.94    eta:   -0.6363
+     C   24    sigma_11=    -15.29    axis=(  0.459074 -0.888398 -0.000000)
+     C   24    sigma_22=    -83.15    axis=(  0.888398  0.459074  0.000000)
+     C   24    sigma_33=    110.72    axis=( -0.000000 -0.000000  1.000000)
+ 
+     Atom 25  H   pos: (  0.049707  0.368508  0.236099)  Total sigma:          20.85
+            22.0613         -2.2494          0.0000
+            -3.1966         22.9795         -0.0000
+             0.0000         -0.0000         17.5182
+
+     H   25    anisotropy:      6.64    eta:   -0.5059
+     H   25    sigma_11=     19.76    axis=( -0.763627 -0.645658 -0.000000)
+     H   25    sigma_22=     17.52    axis=( -0.000000  0.000000  1.000000)
+     H   25    sigma_33=     25.28    axis=(  0.645658 -0.763627  0.000000)
+ 
+     Atom 26  H   pos: (  0.950293  1.413498  0.708296)  Total sigma:          20.85
+            22.0613         -2.2494         -0.0000
+            -3.1966         22.9795         -0.0000
+            -0.0000          0.0000         17.5182
+
+     H   26    anisotropy:      6.64    eta:   -0.5059
+     H   26    sigma_11=     19.76    axis=( -0.763627 -0.645658 -0.000000)
+     H   26    sigma_22=     17.52    axis=(  0.000000 -0.000000  1.000000)
+     H   26    sigma_33=     25.28    axis=(  0.645658 -0.763627 -0.000000)
+ 
+     Atom 27  H   pos: (  0.950293  1.259511  0.236099)  Total sigma:          20.85
+            22.0613          2.2494          0.0000
+             3.1966         22.9795         -0.0000
+             0.0000          0.0000         17.5182
+
+     H   27    anisotropy:      6.64    eta:   -0.5059
+     H   27    sigma_11=     19.76    axis=( -0.763627  0.645658  0.000000)
+     H   27    sigma_22=     17.52    axis=(  0.000000  0.000000  1.000000)
+     H   27    sigma_33=     25.28    axis=( -0.645658 -0.763627  0.000000)
+ 
+     Atom 28  H   pos: (  0.049707  0.522495  0.708296)  Total sigma:          20.85
+            22.0613          2.2494          0.0000
+             3.1966         22.9795          0.0000
+             0.0000          0.0000         17.5182
+
+     H   28    anisotropy:      6.64    eta:   -0.5059
+     H   28    sigma_11=     19.76    axis=( -0.763627  0.645658 -0.000000)
+     H   28    sigma_22=     17.52    axis=( -0.000000 -0.000000  1.000000)
+     H   28    sigma_33=     25.28    axis=( -0.645658 -0.763627 -0.000000)
+ 
+     Atom 29  C   pos: (  0.608801  0.559638  0.236099)  Total sigma:          20.61
+           -49.5574          3.2717          0.0000
+            42.3934         -5.8007          0.0000
+             0.0000         -0.0000        117.1868
+
+     C   29    anisotropy:    144.87    eta:   -0.6549
+     C   29    sigma_11=      3.94    axis=(  0.392518  0.919744  0.000000)
+     C   29    sigma_22=    -59.30    axis=( -0.919744  0.392518  0.000000)
+     C   29    sigma_33=    117.19    axis=(  0.000000  0.000000  1.000000)
+ 
+     Atom 30  C   pos: (  0.391199  1.222368  0.708296)  Total sigma:          20.61
+           -49.5574          3.2717         -0.0000
+            42.3934         -5.8007          0.0000
+            -0.0000         -0.0000        117.1868
+
+     C   30    anisotropy:    144.87    eta:   -0.6549
+     C   30    sigma_11=      3.94    axis=(  0.392518  0.919744  0.000000)
+     C   30    sigma_22=    -59.30    axis=( -0.919744  0.392518 -0.000000)
+     C   30    sigma_33=    117.19    axis=( -0.000000 -0.000000  1.000000)
+ 
+     Atom 31  C   pos: (  0.391199  1.450641  0.236099)  Total sigma:          20.61
+           -49.5574         -3.2717         -0.0000
+           -42.3934         -5.8007         -0.0000
+            -0.0000         -0.0000        117.1868
+
+     C   31    anisotropy:    144.87    eta:   -0.6549
+     C   31    sigma_11=      3.94    axis=( -0.392518  0.919744  0.000000)
+     C   31    sigma_22=    -59.30    axis=( -0.919744 -0.392518  0.000000)
+     C   31    sigma_33=    117.19    axis=(  0.000000  0.000000  1.000000)
+ 
+     Atom 32  C   pos: (  0.608801  0.331365  0.708296)  Total sigma:          20.61
+           -49.5574         -3.2717         -0.0000
+           -42.3934         -5.8007         -0.0000
+             0.0000         -0.0000        117.1868
+
+     C   32    anisotropy:    144.87    eta:   -0.6549
+     C   32    sigma_11=      3.94    axis=(  0.392518 -0.919744 -0.000000)
+     C   32    sigma_22=    -59.30    axis=(  0.919744  0.392518 -0.000000)
+     C   32    sigma_33=    117.19    axis=(  0.000000 -0.000000  1.000000)
+ 
+     Atom 33  H   pos: (  0.452149  0.528990  0.236099)  Total sigma:          22.02
+            21.7649          1.0613         -0.0000
+             2.3298         24.6764         -0.0000
+            -0.0000          0.0000         19.6213
+
+     H   33    anisotropy:      5.15    eta:   -0.3973
+     H   33    sigma_11=     20.99    axis=( -0.908681  0.417490  0.000000)
+     H   33    sigma_22=     19.62    axis=(  0.000000 -0.000000  1.000000)
+     H   33    sigma_33=     25.46    axis=( -0.417490 -0.908681  0.000000)
+ 
+     Atom 34  H   pos: (  0.547851  1.253016  0.708296)  Total sigma:          22.02
+            21.7649          1.0613         -0.0000
+             2.3298         24.6764         -0.0000
+             0.0000          0.0000         19.6213
+
+     H   34    anisotropy:      5.15    eta:   -0.3973
+     H   34    sigma_11=     20.99    axis=( -0.908681  0.417490  0.000000)
+     H   34    sigma_22=     19.62    axis=(  0.000000  0.000000  1.000000)
+     H   34    sigma_33=     25.46    axis=( -0.417490 -0.908681  0.000000)
+ 
+     Atom 35  H   pos: (  0.547851  1.419993  0.236099)  Total sigma:          22.02
+            21.7649         -1.0613          0.0000
+            -2.3298         24.6764         -0.0000
+             0.0000         -0.0000         19.6213
+
+     H   35    anisotropy:      5.15    eta:   -0.3973
+     H   35    sigma_11=     20.99    axis=( -0.908681 -0.417490 -0.000000)
+     H   35    sigma_22=     19.62    axis=( -0.000000 -0.000000  1.000000)
+     H   35    sigma_33=     25.46    axis=(  0.417490 -0.908681  0.000000)
+ 
+     Atom 36  H   pos: (  0.452149  0.362013  0.708296)  Total sigma:          22.02
+            21.7649         -1.0613         -0.0000
+            -2.3298         24.6764          0.0000
+            -0.0000          0.0000         19.6213
+
+     H   36    anisotropy:      5.15    eta:   -0.3973
+     H   36    sigma_11=     20.99    axis=( -0.908681 -0.417490  0.000000)
+     H   36    sigma_22=     19.62    axis=(  0.000000  0.000000  1.000000)
+     H   36    sigma_33=     25.46    axis=(  0.417490 -0.908681 -0.000000)
+ 
+     Atom 37  C   pos: (  0.602660  0.940296  0.236099)  Total sigma:           0.44
+           -47.1443         65.9275          0.0000
+            39.2534        -15.5240          0.0000
+            -0.0000          0.0000         63.9904
+
+     C   37    anisotropy:   -130.04    eta:   -0.4661
+     C   37    sigma_11=     23.58    axis=(  0.596699  0.802465 -0.000000)
+     C   37    sigma_22=     63.99    axis=(  0.000000  0.000000  1.000000)
+     C   37    sigma_33=    -86.25    axis=( -0.802465  0.596699 -0.000000)
+ 
+     Atom 38  C   pos: (  0.397340  0.841710  0.708296)  Total sigma:           0.44
+           -47.1443         65.9275         -0.0000
+            39.2534        -15.5240          0.0000
+            -0.0000          0.0000         63.9904
+
+     C   38    anisotropy:   -130.04    eta:   -0.4661
+     C   38    sigma_11=     23.58    axis=(  0.596699  0.802465  0.000000)
+     C   38    sigma_22=     63.99    axis=(  0.000000 -0.000000 -1.000000)
+     C   38    sigma_33=    -86.25    axis=( -0.802465  0.596699 -0.000000)
+ 
+     Atom 39  C   pos: (  0.397340  0.049293  0.236099)  Total sigma:           0.44
+           -47.1443        -65.9275         -0.0000
+           -39.2534        -15.5240         -0.0000
+            -0.0000         -0.0000         63.9904
+
+     C   39    anisotropy:   -130.04    eta:   -0.4661
+     C   39    sigma_11=     23.58    axis=( -0.596699  0.802465  0.000000)
+     C   39    sigma_22=     63.99    axis=(  0.000000  0.000000  1.000000)
+     C   39    sigma_33=    -86.25    axis=( -0.802465 -0.596699  0.000000)
+ 
+     Atom 40  C   pos: (  0.602660  1.732713  0.708296)  Total sigma:           0.44
+           -47.1443        -65.9275          0.0000
+           -39.2534        -15.5240          0.0000
+            -0.0000         -0.0000         63.9904
+
+     C   40    anisotropy:   -130.04    eta:   -0.4661
+     C   40    sigma_11=     23.58    axis=( -0.596699  0.802465 -0.000000)
+     C   40    sigma_22=     63.99    axis=( -0.000000  0.000000  1.000000)
+     C   40    sigma_33=    -86.25    axis=( -0.802465 -0.596699  0.000000)
+ 
+     Atom 41  H   pos: (  0.349608  1.077396  0.236099)  Total sigma:          15.80
+            14.5436        -11.5361          0.0000
+           -11.9099         25.8364         -0.0000
+             0.0000         -0.0000          7.0259
+
+     H   41    anisotropy:     26.10    eta:   -0.0087
+     H   41    sigma_11=      7.18    axis=( -0.846741 -0.532006 -0.000000)
+     H   41    sigma_22=      7.03    axis=( -0.000000 -0.000000  1.000000)
+     H   41    sigma_33=     33.20    axis=(  0.532006 -0.846741  0.000000)
+ 
+     Atom 42  H   pos: (  0.650392  0.704610  0.708296)  Total sigma:          15.80
+            14.5436        -11.5361         -0.0000
+           -11.9099         25.8364         -0.0000
+             0.0000         -0.0000          7.0259
+
+     H   42    anisotropy:     26.10    eta:   -0.0087
+     H   42    sigma_11=      7.18    axis=(  0.846741  0.532006 -0.000000)
+     H   42    sigma_22=      7.03    axis=(  0.000000  0.000000  1.000000)
+     H   42    sigma_33=     33.20    axis=( -0.532006  0.846741 -0.000000)
+ 
+     Atom 43  H   pos: (  0.650392  0.186393  0.236099)  Total sigma:          15.80
+            14.5436         11.5361          0.0000
+            11.9099         25.8364          0.0000
+             0.0000          0.0000          7.0259
+
+     H   43    anisotropy:     26.10    eta:   -0.0087
+     H   43    sigma_11=      7.18    axis=(  0.846741 -0.532006  0.000000)
+     H   43    sigma_22=      7.03    axis=( -0.000000  0.000000  1.000000)
+     H   43    sigma_33=     33.20    axis=(  0.532006  0.846741  0.000000)
+ 
+     Atom 44  H   pos: (  0.349608  1.595613  0.708296)  Total sigma:          15.80
+            14.5436         11.5361          0.0000
+            11.9099         25.8364          0.0000
+            -0.0000         -0.0000          7.0259
+
+     H   44    anisotropy:     26.10    eta:   -0.0087
+     H   44    sigma_11=      7.18    axis=( -0.846741  0.532006 -0.000000)
+     H   44    sigma_22=      7.03    axis=( -0.000000  0.000000  1.000000)
+     H   44    sigma_33=     33.20    axis=( -0.532006 -0.846741  0.000000)
+ 
+     Initialization:
+     gipaw_setup  :      0.43s CPU      0.47s WALL (       1 calls)
+ 
+     Linear response
+     greenf       :   8640.74s CPU   8812.48s WALL (     192 calls)
+     cgsolve      :   8585.42s CPU   8757.02s WALL (     192 calls)
+     ch_psi       :   8463.71s CPU   8633.17s WALL (   11583 calls)
+     h_psiq       :   6375.33s CPU   6540.53s WALL (   11583 calls)
+ 
+     Apply operators
+     h_psi        :   5578.86s CPU   5764.88s WALL (   15784 calls)
+     apply_vel    :    124.55s CPU    126.93s WALL (     168 calls)
+ 
+     Induced current
+     j_para       :    398.56s CPU    413.16s WALL (     216 calls)
+     biot_savart  :      0.06s CPU      0.07s WALL (       1 calls)
+ 
+     Other routines
+ 
+     General routines
+     calbec       :   2433.73s CPU   2441.54s WALL (   40574 calls)
+     fft          :      0.13s CPU      0.15s WALL (      32 calls)
+     fftw         :   3904.58s CPU   4094.34s WALL ( 2439716 calls)
+     davcio       :      0.02s CPU      0.83s WALL (     128 calls)
+ 
+     Parallel routines
+     fft_scatter  :    967.91s CPU   1077.15s WALL ( 2439748 calls)
+ 
+     Plugins
+ 
+     GIPAW        :  10695.12s CPU  10920.79s WALL (       1 calls)
