@@ -1,8 +1,8 @@
-from helpers import filter_by_status
+from helpers.helpers import filter_by_status
 from rascal.neighbourlist.structure_manager import mask_center_atoms_by_species, mask_center_atoms_by_id
 from ase.io import read
 import numpy as np
-from helpers import return_relative_inds
+from helpers.helpers import return_relative_inds
 
 
 def load_data(TRAINPATH,TESTPATH,physical_property="cs_iso",filter_by="PASSING",selected_ids=None,\
