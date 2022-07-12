@@ -1,5 +1,5 @@
 from joblib import Parallel, delayed, parallel_backend
-from helpers.helpers import grouper
+from helpers import grouper
 from scipy.special import legendre, gamma
 from copy import deepcopy
 import numpy as np
