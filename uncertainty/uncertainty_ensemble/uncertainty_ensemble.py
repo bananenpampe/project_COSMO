@@ -16,10 +16,9 @@ def _parallel_predict_regression(estimators, estimators_features, X):
 class UncertaintyEnsembleRegressor(BaggingRegressor):
     
     
-    def predict(self, X):
-        """Predict regression target for X.
-        The predicted regression target of an input sample is computed as the
-        mean predicted regression targets of the estimators in the ensemble.
+    def predict_uncertainty(self, X):
+        """Predict regression target for each base estimator.
+        
         Parameters
         ----------
         X : {array-like, sparse matrix} of shape (n_samples, n_features)
@@ -27,7 +26,7 @@ class UncertaintyEnsembleRegressor(BaggingRegressor):
             they are supported by the base estimator.
         Returns
         -------
-        y : ndarray of shape (n_samples,)
+        y : ndarray of shape (n_samples,n_models)
             The predicted values.
         """
         check_is_fitted(self)
