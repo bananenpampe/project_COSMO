@@ -5,6 +5,7 @@ from sklearn.ensemble._bagging import _parallel_predict_regression, BaseBagging
 from joblib import Parallel
 from sklearn.utils.fixes import delayed
 from sklearn.base import ClassifierMixin, RegressorMixin
+import numpy as np
 
 
 def _parallel_predict_regression(estimators, estimators_features, X):
