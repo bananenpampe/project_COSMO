@@ -34,13 +34,34 @@ from sklearn.base import ClassifierMixin, RegressorMixin
 from sklearn.utils.validation import check_is_fitted
 from sklearn.metrics import mean_squared_error
 from scipy.optimize import minimize
+from scipy.optimize import basinhopping
 from sklearn.linear_model import Ridge
+
 
 
 __all__ = ["BaggingClassifier", "BaggingRegressor"]
 
 MAX_INT = np.iinfo(np.int32).max
 
+def small_correction(alpha,M):
+    return np.sqrt(-1/M + (M-3)/(M-1) * alpha**2)
+
+def rescale_a_b_g(ystd,alpha,beta,gamma):
+    return np.sqrt(alpha**2 * ystd**(gamma+2) + beta**2)  
+
+def rescale_a(ystd,alpha):
+    return np.sqrt(alpha**2 * ystd**2)
+
+def neglog_likelihood(ystd,ymeans,ytrue):
+    ll = np.mean(-0.5*np.log(2*np.pi*(ystd**2)) - (ymeans-ytrue)**2/(2*(ystd**2)))
+    return -ll
+
+def neglog_likelihood_rescale(x,ystd,ymeans,ytrue,rescale,nll=neglog_likelihood):
+    ystd = rescale(ystd,*x)
+    return nll(ystd,ymeans,ytrue)
+
+def dimensionless_coeff(LLworst,LLbest,LLactual):
+    return max((LLworst-LLactual),0)/(LLworst-LLbest)*100
 
 def _generate_indices(random_state, bootstrap, n_population, n_samples, groups=None):
     """Draw randomly sampled indices."""
@@ -63,9 +84,13 @@ def _generate_indices(random_state, bootstrap, n_population, n_samples, groups=N
             return indices
         
         else:
-            splitter = GroupShuffleSplit(n_splits = 2, train_size=frac)
-            dummy_ind = np.arange(n_population)
-            indices, other = next(splitter.split(dummy_ind,dummy_ind,groups))
+            if frac == 1.0:
+                indices = np.arange(n_population)
+                np.random.shuffle(indices)
+            else:
+                splitter = GroupShuffleSplit(n_splits = 2, train_size=frac)
+                dummy_ind = np.arange(n_population)
+                indices, other = next(splitter.split(dummy_ind,dummy_ind,groups))
             
     else:
         if bootstrap:
@@ -808,7 +833,22 @@ class UncertaintyEnsembleRegressor(BaggingRegressor):
     
     #for each estimator we call _generate_bagging_indices
     
-    def __init__(self,*args,**kwargs):
+    def __init__(
+        self,
+        base_estimator=None,
+        n_estimators=10,
+        *,
+        max_samples=1.0,
+        max_features=1.0,
+        bootstrap=True,
+        bootstrap_features=False,
+        oob_score=False,
+        warm_start=False,
+        n_jobs=None,
+        random_state=None,
+        verbose=0,
+    ):
+        
         
         self.rescaled = False
         
@@ -816,7 +856,21 @@ class UncertaintyEnsembleRegressor(BaggingRegressor):
         self.beta = 0
         self.gamma = 0
         
-        super().__init__(*args,**kwargs)
+        
+        
+        super().__init__(
+            base_estimator,
+            n_estimators=n_estimators,
+            max_samples=max_samples,
+            max_features=max_features,
+            bootstrap=bootstrap,
+            bootstrap_features=bootstrap_features,
+            oob_score=oob_score,
+            warm_start=warm_start,
+            n_jobs=n_jobs,
+            random_state=random_state,
+            verbose=verbose,
+        )
         
     
     def _check_rescaled(self):
@@ -874,9 +928,6 @@ class UncertaintyEnsembleRegressor(BaggingRegressor):
         
         self._check_rescaled()
         
-        def rescale_a_b_g(ystd,alpha,beta,gamma):
-            return np.sqrt(alpha**2 * ystd**(gamma+2) + beta**2)
-        
         Ypred = self._predict_uncertainty(X)
         
         Ymean = Ypred.mean(axis=1)
@@ -886,32 +937,72 @@ class UncertaintyEnsembleRegressor(BaggingRegressor):
         
         return Ymean, Ystd
         
-    
+    def rescale_external(self,Xval,Yval,Xtest,Ytest):
+        
+        Ypred_val = self._predict_uncertainty(Xval)
+        Ypred_test = self._predict_uncertainty(Xtest)
+            
+        # get means and vars
+        Ypred_val_mean = np.mean(Ypred_val,axis=1)
+        Ypred_val_std = np.std(Ypred_val,axis=1,ddof=1)
+
+        Ypred_test_mean = Ypred_test.mean(axis=1)
+        Ypred_test_std = Ypred_test.std(axis=1,ddof=1)
+        
+        # minimize the non-linear rescaling objective
+        min_res_full_a_b_g = minimize(neglog_likelihood_rescale,args=(Ypred_val_std,Ypred_val_mean,Yval,rescale_a_b_g),x0=np.array([1.,0.,0.]))
+        min_res_full_a_b_g = basinhopping()
+        alpha_a_b_g, beta_a_b_g, gamma_a_b_g = min_res_full_a_b_g["x"]
+        
+        #calculate the negative log likelihoods using various rescalings
+        
+        neglog_likelihood_no_rescale_test = neglog_likelihood(Ypred_test_std,Ypred_test_mean,Ytest)
+        neglog_likelihood_a_b_g_rescale_test = neglog_likelihood_rescale([alpha_a_b_g, beta_a_b_g, gamma_a_b_g],Ypred_test_std,Ypred_test_mean,Ytest,rescale_a_b_g)
+        
+        #calculate RMSEs
+        RMSE_test = mean_squared_error(Ypred_test_mean,Ytest,squared=False)
+        RMSE_val = mean_squared_error(Ypred_val_mean,Yval,squared=False)
+        
+        #calculate test residuals
+        errors_test = np.abs(Ypred_test_mean-Ytest)
+        
+        #determine best and worst NLLs
+        NLL_worst = neglog_likelihood(RMSE_test*np.ones(Ypred_test_mean.shape),Ypred_test_mean,Ytest)
+        NLL_best = neglog_likelihood(errors_test,Ypred_test_mean,Ytest)
+        
+        coeff_no_rescale = dimensionless_coeff(NLL_worst,NLL_best,neglog_likelihood_no_rescale_test)
+        coeff_a_b_g_rescaled = dimensionless_coeff(NLL_worst,NLL_best,neglog_likelihood_a_b_g_rescale_test)
+        
+        
+        
+        #print a rescaling report:
+        print("""RMSE test: {:.2f}\n
+                 RMSE val: {:.2f}\n
+                 NLL without rescale: {:.2f}\n
+                 NLL with rescale(a,b,g): {:.2f}\n
+                 NLL best: {:.2f}\n
+                 NLL worst: {:.2f}\n
+                 no rescale coeff: {:.2f}\n
+                 rescale coeff (a,b,g): {:.2f}\n
+                 a,b,g: {:.2f}, {:.2f}, {:.2f}\n""".format(RMSE_test,RMSE_val,\
+                                                       neglog_likelihood_no_rescale_test, \
+                                                      neglog_likelihood_a_b_g_rescale_test,\
+                                                      NLL_best,NLL_worst,\
+                                                      coeff_no_rescale, coeff_a_b_g_rescaled,float(alpha_a_b_g), float(beta_a_b_g), float(gamma_a_b_g)))
+        
+        
+        
+        self.rescaled = True
+        self.alpha = alpha_a_b_g
+        self.beta = beta_a_b_g
+        self.gamma = gamma_a_b_g
+        
+        
     def rescale(self,Xtrain,Ytrain,Xtest,Ytest,pre_mask=None,n_missing=5):
         
         """ rescales the LL using an internal validation set
         """
-        
-        def small_correction(alpha,M):
-            return np.sqrt(-1/M + (M-3)/(M-1) * alpha**2)
 
-        def rescale_a_b_g(ystd,alpha,beta,gamma):
-            return np.sqrt(alpha**2 * ystd**(gamma+2) + beta**2)  
-
-        def rescale_a(ystd,alpha):
-            return np.sqrt(alpha**2 * ystd**2)
-
-        def neglog_likelihood(ystd,ymeans,ytrue):
-            ll = np.mean(-0.5*np.log(2*np.pi*(ystd**2)) - (ymeans-ytrue)**2/(2*(ystd**2)))
-            return -ll
-
-        def neglog_likelihood_rescale(x,ystd,ymeans,ytrue,rescale,nll=neglog_likelihood):
-            ystd = rescale(ystd,*x)
-            return nll(ystd,ymeans,ytrue)
-
-        def dimensionless_coeff(LLworst,LLbest,LLactual):
-            return max((LLworst-LLactual),0)/(LLworst-LLbest)*100
-        
         Ypred_train = self._predict_uncertainty(Xtrain)
         Ypred_test = self._predict_uncertainty(Xtest)
         
