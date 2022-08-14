@@ -808,7 +808,21 @@ class UncertaintyEnsembleRegressor(BaggingRegressor):
     
     #for each estimator we call _generate_bagging_indices
     
-    def predict_uncertainty(self, X):
+    def __init__(self,*args,**kwargs):
+        
+        self.rescaled = False
+        
+        self.alpha = 1
+        self.beta = 0
+        self.gamma = 0
+        
+        super().__init__(*args,**kwargs)
+        
+    
+    def _check_rescaled(self):
+        assert self.rescaled == True
+    
+    def _predict_uncertainty(self, X):
         """Predict regression target for X.
         The predicted regression target of an input sample is computed as the
         mean predicted regression targets of the estimators in the ensemble.
@@ -852,6 +866,26 @@ class UncertaintyEnsembleRegressor(BaggingRegressor):
         
         return np.vstack(gathered).T
     
+    def predict_uncertainty(self,X):
+        
+        """after rescaling using the internal validation set,
+        function returns the mean and rescaled standard deviation of the model
+        """
+        
+        self._check_rescaled()
+        
+        def rescale_a_b_g(ystd,alpha,beta,gamma):
+            return np.sqrt(alpha**2 * ystd**(gamma+2) + beta**2)
+        
+        Ypred = self._predict_uncertainty(X)
+        
+        Ymean = Ypred.mean(axis=1)
+        Ystd = Ypred.std(axis=1,ddof=1)
+        
+        Ystd = rescale_a_b_g(Ystd,self.alpha,self.beta,self.gamma)
+        
+        return Ymean, Ystd
+        
     
     def rescale(self,Xtrain,Ytrain,Xtest,Ytest,pre_mask=None,n_missing=5):
         
@@ -878,8 +912,8 @@ class UncertaintyEnsembleRegressor(BaggingRegressor):
         def dimensionless_coeff(LLworst,LLbest,LLactual):
             return max((LLworst-LLactual),0)/(LLworst-LLbest)*100
         
-        Ypred_train = self.predict_uncertainty(Xtrain)
-        Ypred_test = self.predict_uncertainty(Xtest)
+        Ypred_train = self._predict_uncertainty(Xtrain)
+        Ypred_test = self._predict_uncertainty(Xtest)
         
         if pre_mask is None:
             sample_mask = np.zeros((Xtrain.shape[0],self.n_estimators),dtype=bool)
@@ -923,7 +957,7 @@ class UncertaintyEnsembleRegressor(BaggingRegressor):
         
         
         # minimize the non-linear rescaling objective
-        min_res_full_a_b_g = minimize(neglog_likelihood_rescale,args=(Ypred_train_std_masked,Ypred_train_mean_masked,Ytrain[more_than_n_missing],rescale_a_b_g),x0=np.array([1.,1.,1.]))
+        min_res_full_a_b_g = minimize(neglog_likelihood_rescale,args=(Ypred_train_std_masked,Ypred_train_mean_masked,Ytrain[more_than_n_missing],rescale_a_b_g),x0=np.array([1.,0.,0.]))
         alpha_a_b_g, beta_a_b_g, gamma_a_b_g = min_res_full_a_b_g["x"]
         
         #calculate the negative log likelihoods using various rescalings
@@ -971,5 +1005,15 @@ class UncertaintyEnsembleRegressor(BaggingRegressor):
                                                       NLL_best,NLL_worst,coeff_no_rescale,coeff_a_rescaled,\
                                                       coeff_a_b_g_rescaled,alpha_a[0],float(alpha_a_b_g), float(beta_a_b_g), float(gamma_a_b_g)))
         
-        return sample_mask
+        
+        
+        self.rescaled = True
+        self.alpha = alpha_a_b_g
+        self.beta = beta_a_b_g
+        self.gamma = gamma_a_b_g
+        
+        
+        
+
+
         
