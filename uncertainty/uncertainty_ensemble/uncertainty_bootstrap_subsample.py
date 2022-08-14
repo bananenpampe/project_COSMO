@@ -486,7 +486,7 @@ class BaseBagging(BaseEnsemble, metaclass=ABCMeta):
         self._seeds = seeds
 
         all_results = Parallel(
-            n_jobs=n_jobs, verbose=self.verbose, **self._parallel_args()
+            n_jobs=n_jobs, timeout=9999,verbose=self.verbose, **self._parallel_args()
         )(
             delayed(_parallel_build_estimators)(
                 n_estimators[i],
