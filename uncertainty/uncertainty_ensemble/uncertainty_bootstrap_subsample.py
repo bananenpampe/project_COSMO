@@ -1279,5 +1279,165 @@ class DualEnsemble:
         self.gamma_a = gamma_a_b_g_a
         self.alpha_b = alpha_a_b_g_b
         self.beta_b = beta_a_b_g_b
-        self.gamma_b = gamma_a_b_g_b        
+        self.gamma_b = gamma_a_b_g_b 
+        
+
+class DualEnsemble_bak:
+    #make it simple for now
+    
+    
+    def __init__(self,ensA,ensB):
+        
+        check_is_fitted(ensA)
+        check_is_fitted(ensB)
+        
+        assert isinstance(ensA.__class__,UncertaintyEnsembleRegressor.__class__)
+        assert isinstance(ensB.__class__,UncertaintyEnsembleRegressor.__class__)
+        
+        ensA.rescaled = True
+        ensB.rescaled = True
+        
+        self.ensA = ensA
+        self.ensB = ensB
+        
+        self.alpha_a = None
+        self.alpha_b = None
+        self.beta_a = None
+        self.beta_b = None
+        self.gamma_a = None
+        self.gamma_b = None
+        
+        self.fitted = False
+    
+    def _check_is_fitted(self):
+        if self.fitted is False:
+            raise ValueError
+            
+    def predict(self,Xpred_a,Xpred_b):
+        self._check_is_fitted()
+        
+        Ymean_A, Ystd_A = self.ensA.predict_uncertainty(Xpred_a)
+        Ymean_B, Ystd_B = self.ensB.predict_uncertainty(Xpred_b)
+        
+        Ystd_A = rescale_a_b_g(Ystd_A,self.alpha_a,self.beta_a,self.gamma_a)
+        Ystd_B = rescale_a_b_g(Ystd_B,self.alpha_b,self.beta_b,self.gamma_b)
+        
+        Ymean_comb, Ystd_comb = combined_mean_std(Ymean_A, Ymean_B, Ystd_A, Ystd_B)
+        
+        return Ymean_comb, Ystd_comb
+    
+    def rescale_external(self,Xval_a,Xval_b,Yval,Xtest_a,Xtest_b,Ytest):
+        
+        Ypred_val_a = self.ensA._predict_uncertainty(Xval_a)
+        Ypred_val_b = self.ensB._predict_uncertainty(Xval_b)
+        
+        Ypred_test_a = self.ensA._predict_uncertainty(Xtest_a)
+        Ypred_test_b = self.ensB._predict_uncertainty(Xtest_b)
+            
+        # get means and vars of val set
+        Ypred_val_mean_a = np.mean(Ypred_val_a,axis=1)
+        Ypred_val_std_a = np.std(Ypred_val_a,axis=1,ddof=1)
+        Ypred_val_mean_b = np.mean(Ypred_val_b,axis=1)
+        Ypred_val_std_b = np.std(Ypred_val_b,axis=1,ddof=1)
+
+        # get means and vars of test set
+        Ypred_test_mean_a = Ypred_test_a.mean(axis=1)
+        Ypred_test_std_a = Ypred_test_a.std(axis=1,ddof=1)
+        Ypred_test_mean_b = Ypred_test_b.mean(axis=1)
+        Ypred_test_std_b = Ypred_test_b.std(axis=1,ddof=1)
+        
+        # predict results using no scalind
+        Ypred_test_mean_no_rescale, Ypred_test_std_no_rescale = combined_mean_std(Ypred_test_mean_a,Ypred_test_mean_b,Ypred_test_std_a,Ypred_test_std_b)
+        
+        # neglog_likelihood_rescale_dual(x,ystd_a,ystd_b,ymeans_a,ymeans_b,ytrue,rescale,nll=neglog_likelihood):
+        min_res_full_a_b_g = minimize(neglog_likelihood_rescale_dual,args=(Ypred_val_std_a,Ypred_val_std_b,\
+                                                                           Ypred_val_mean_a,Ypred_val_mean_b,Yval,rescale_a_b_g),x0=np.array([1.,1.,1.,1.,1.,1.]))
+        
+        #get params from minimization result 
+        alpha_a_b_g_a, beta_a_b_g_a, gamma_a_b_g_a, alpha_a_b_g_b, beta_a_b_g_b, gamma_a_b_g_b = min_res_full_a_b_g["x"]
+        print(min_res_full_a_b_g["fun"])
+        
+        
+        #linear rescale
+        min_res_full_a = minimize(neglog_likelihood_rescale_dual,args=(Ypred_val_std_a,Ypred_val_std_b,\
+                                                                           Ypred_val_mean_a,Ypred_val_mean_b,Yval,rescale_a),x0=np.array([1.,1.]))
+        
+        alpha_a_a, alpha_a_b = min_res_full_a["x"]
+        
+        alpha_a_a = small_correction(alpha_a_a,self.ensA.n_estimators)
+        alpha_a_b = small_correction(alpha_a_b,self.ensB.n_estimators)
+        
+        #calculate the negative log likelihoods using various rescalings
+        
+        neglog_likelihood_no_rescale_test = neglog_likelihood(Ypred_test_std_no_rescale,Ypred_test_mean_no_rescale,Ytest)
+        neglog_likelihood_a_rescale_test = neglog_likelihood_rescale_dual(np.array([alpha_a_a,\
+                                                                               alpha_a_b]),\
+                                                                                Ypred_test_std_a,Ypred_test_std_b,\
+                                                                                Ypred_test_mean_a,Ypred_test_mean_b,Ytest,rescale_a)
+        neglog_likelihood_a_b_g_rescale_test = neglog_likelihood_rescale_dual(np.array([alpha_a_b_g_a, beta_a_b_g_a, gamma_a_b_g_a,\
+                                                                               alpha_a_b_g_b, beta_a_b_g_b, gamma_a_b_g_b]),\
+                                                                                Ypred_test_std_a,Ypred_test_std_b,\
+                                                                                Ypred_test_mean_a,Ypred_test_mean_b,Ytest,rescale_a_b_g)
+        
+        
+        # rescaled stds
+        Ypred_test_std_a_rescaled = rescale_a_b_g(Ypred_test_std_a,alpha_a_b_g_a, beta_a_b_g_a, gamma_a_b_g_a)
+        Ypred_test_std_b_rescaled = rescale_a_b_g(Ypred_test_std_b,alpha_a_b_g_b, beta_a_b_g_b, gamma_a_b_g_b)
+        
+        Ypred_test_std_a_rescaled_a_only = rescale_a(Ypred_test_std_a,alpha_a_a)
+        Ypred_test_std_b_rescaled_a_only = rescale_a(Ypred_test_std_b,alpha_a_b)
+        
+        #combined rescaled prediction
+        Ypred_test_mean_rescaled, Ypred_test_std_rescaled = combined_mean_std(Ypred_test_mean_a,Ypred_test_mean_b,Ypred_test_std_a_rescaled,Ypred_test_std_b_rescaled)
+        Ypred_test_mean_rescaled_a_only, Ypred_test_std_rescaled_a_only = combined_mean_std(Ypred_test_mean_a,Ypred_test_mean_b, \
+                                                                                            Ypred_test_std_a_rescaled_a_only,Ypred_test_std_b_rescaled_a_only)
+        
+        #calculate RMSEs
+        RMSE_test = mean_squared_error(Ypred_test_mean_rescaled,Ytest,squared=False)
+        
+        #calculate test residuals
+        errors_test = np.abs(Ypred_test_mean_rescaled-Ytest)
+        
+        #determine best and worst NLLs
+        NLL_worst = neglog_likelihood(RMSE_test*np.ones(Ypred_test_mean_rescaled.shape),Ypred_test_mean_rescaled,Ytest)
+        NLL_best = neglog_likelihood(errors_test,Ypred_test_mean_rescaled,Ytest)
+        
+        coeff_no_rescale = dimensionless_coeff(NLL_worst,NLL_best,neglog_likelihood_no_rescale_test)
+        coeff_a_rescaled = dimensionless_coeff(NLL_worst,NLL_best,neglog_likelihood_a_rescale_test)
+        coeff_a_b_g_rescaled = dimensionless_coeff(NLL_worst,NLL_best,neglog_likelihood_a_b_g_rescale_test)
+        
+        
+        
+        #print a rescaling report:
+        print("""RMSE test: {:.2f}\n
+                 NLL without rescale: {:.2f}\n
+                 NLL with rescale(a): {:.2f}\n
+                 NLL with rescale(a,b,g): {:.2f}\n
+                 NLL best: {:.2f}\n
+                 NLL worst: {:.2f}\n
+                 no rescale coeff: {:.2f}\n
+                 rescale coeff (a,): {:.2f}\n
+                 rescale coeff (a,b,g): {:.2f}\n
+                 (a): a, : {:.2f} \n
+                 (b): a, : {:.2f} \n
+                 (a): a,b,g: {:.2f}, {:.2f}, {:.2f}\n
+                 (b): a,b,g: {:.2f}, {:.2f}, {:.2f}\n""".format(RMSE_test,\
+                                                       neglog_likelihood_no_rescale_test, \
+                                                        neglog_likelihood_a_rescale_test, \
+                                                      neglog_likelihood_a_b_g_rescale_test,\
+                                                      NLL_best,NLL_worst,\
+                                                      coeff_no_rescale, coeff_a_rescaled, coeff_a_b_g_rescaled,\
+                                                        float(alpha_a_a),float(alpha_a_b),\
+                                                        float(alpha_a_b_g_a), float(beta_a_b_g_a), float(gamma_a_b_g_a),\
+                                                        float(alpha_a_b_g_b), float(beta_a_b_g_b), float(gamma_a_b_g_b) ))
+        
+        
+        
+        self.fitted = True
+        self.alpha_a = alpha_a_b_g_a
+        self.beta_a = beta_a_b_g_a
+        self.gamma_a = gamma_a_b_g_a
+        self.alpha_b = alpha_a_b_g_b
+        self.beta_b = beta_a_b_g_b
+        self.gamma_b = gamma_a_b_g_b 
         
