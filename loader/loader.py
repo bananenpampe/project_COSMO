@@ -1,11 +1,11 @@
-from helpers.helpers import filter_by_status
+from helpers import filter_by_status
 from rascal.neighbourlist.structure_manager import mask_center_atoms_by_species, mask_center_atoms_by_id
 from ase.io import read
 import numpy as np
-from helpers.helpers import return_relative_inds
+from helpers import return_relative_inds
 
 
-def load_data(TRAINPATH,TESTPATH,physical_property="cs_iso",filter_by="PASSING",selected_ids=None,\
+def load_data(TRAINPATH,TESTPATH,physical_property="cs_iso",filter_by="PASSING",filter_by_test=None,selected_ids=None,\
               selected_species=None,random_subsample_train=None,random_subsample_test=None):
     
     #load train and teststructures
@@ -17,6 +17,9 @@ def load_data(TRAINPATH,TESTPATH,physical_property="cs_iso",filter_by="PASSING",
     
     if filter_by is not None:
         train_structures = filter_by_status(train_structures,status=filter_by)
+        
+    if filter_by_test is not None:
+        test_structures = filter_by_status(test_structures,status=filter_by_test)
     
     #wrap train structures
     for structure in train_structures:
