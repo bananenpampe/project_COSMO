@@ -5,7 +5,7 @@ import numpy as np
 from helpers import return_relative_inds
 
 
-def load_data(TRAINPATH,TESTPATH,physical_property="cs_iso",filter_by="PASSING",filter_by_test=None,selected_ids=None,\
+def load_data(TRAINPATH,TESTPATH,physical_property="cs_iso",filter_by=["PASSING"],filter_by_test=None,selected_ids=None,\
               selected_species=None,random_subsample_train=None,random_subsample_test=None):
     
     #load train and teststructures

@@ -54,10 +54,10 @@ def return_relative_inds(frames, selected_ids, atom_type):
     #finally return dict/np.array with the selected ids
     return np.vstack((in_bin_names,inds_relative)).T
 
-def filter_by_status(frames, status="PASSING"):
+def filter_by_status(frames, status=["PASSING"]):
     """Helper function that filters structures by info dict 'STATUS' entry
     """
-    return [frame for frame in frames if frame.info['STATUS'] == status]
+    return [frame for frame in frames if frame.info['STATUS'] in status]
 
 def retrieve_features(calculator, chunk):
     """helper function that allows for calling a class method in joblib
